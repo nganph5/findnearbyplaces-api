@@ -5,14 +5,14 @@ import APIAccess from '../communication/APIAccess';
 
 
 let FederatedLogin = (props) => {
-    const { username, name } = useParams();
+    const { username } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
       APIAccess.isLoggedIn()
       .then(x => {
-        console.log(x);
           if(x.done) {
+            console.log(username);
              props.customerLoggedIn(username);
              navigate('/');
           } else {
@@ -20,7 +20,7 @@ let FederatedLogin = (props) => {
              navigate('/');
           }
       })
-    }, []);
+    });
 
     return (
       <>

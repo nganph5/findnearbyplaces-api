@@ -16,6 +16,20 @@ let APIAccess = {
     });
   },
 
+  login: (email, password) => {
+    return fetch(`${backendAddress}/login`, {
+      method: 'Post',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({email, password}) 
+    })
+    .then(x => x.json())
+    .then(x => {
+        return x;
+    });
+  },
+
   
   isLoggedIn: () => {
     return fetch(`${backendAddress}/loggedin`, {

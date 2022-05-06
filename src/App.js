@@ -40,8 +40,6 @@ function App() {
 
         <Routes>
           <Route exact path="/register" element={<Register />}></Route>
-
-          <Route path='/login/:from' element={<Login customerLoggedIn={customerLoggedInHandler} />}></Route>
           
           <Route path='/login' element={<Login customerLoggedIn={customerLoggedInHandler} />}></Route>
 

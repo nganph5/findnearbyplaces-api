@@ -23,6 +23,7 @@ function Register() {
       APIAccess.addCustomer(email, passwd)
       .then(x => {
         if (x.done){
+          alert("Registration succeeded. Welcome!");
           navigate("/login");
         }else{
           alert(x.message);
@@ -45,7 +46,7 @@ function Register() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" placeholder="Enter Password" value={passwd} onChange={onPassChanged}/>
             </Form.Group>
-            <Button type="submit">Submit</Button>  
+            <Button type="submit">Create New Account</Button>  
         </Form>
       </Container>
     );
