@@ -39,6 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "homepage": "https://nganph5.github.io/findnearbyplaces-api",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
-  , "homepage": "https://nganph5.github.io/findnearbyplaces-api"
 }
