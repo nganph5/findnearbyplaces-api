@@ -1,5 +1,5 @@
 {
-  "name": "yelp-like",
+  "name": "find-nearby-places",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -38,4 +38,5 @@
       "last 1 safari version"
     ]
   }
+  , "homepage": "https://nganph5.github.io/findnearbyplaces-api"
 }
