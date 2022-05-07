@@ -12,7 +12,7 @@ function Menu(props) {
   let logout = () => {
     APIAccess.logout()
     .then(x => props.customerLoggedOut())
-    .catch(e => console.log(e));    
+    .catch(e => {console.log(e)});    
   }
 
   return(
