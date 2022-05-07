@@ -39,17 +39,7 @@ function App() {
 
           <Route
             exact
-            path="/findnearbyplaces-api/register"
-            element={<Register />}
-          ></Route>
-
-          <Route
-            path="/findnearbyplaces-api/login"
-            element={<Login customerLoggedIn={customerLoggedInHandler} />}
-          ></Route>
-
-          <Route
-            path="/findnearbyplaces-api/google/:username"
+            path="/google/:username"
             element={
               <FederatedLogin
                 provider="google"
@@ -60,9 +50,11 @@ function App() {
 
           <Route
             exact
-            path="/findnearbyplaces-api/logout"
+            path="/logout"
             element={<Logout customerLoggedIn={customerLoggedInHandler} />}
           ></Route>
+
+          <Route exact path="/" element={<Home />}></Route>
         </Routes>
         <Row>
           <Col>

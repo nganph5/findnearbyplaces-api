@@ -34,24 +34,20 @@ function Menu(props) {
               {props.customer ? (
                 <Navbar.Text>
                   Signed in as {props.customer}
-                  <Nav.Link
-                    as={Link}
-                    to="/findnearbyplaces-api/logout"
-                    onClick={logout}
-                  >
+                  <Nav.Link as={Link} to="/logout" onClick={logout}>
                     Log Out
                   </Nav.Link>
                 </Navbar.Text>
               ) : (
                 <>
-                  <Nav.Link as={Link} to="/findnearbyplaces-api/register">
+                  <Nav.Link as={Link} to="/register">
                     {" "}
                     <button className={`button ${styles["nav-button"]}`}>
                       Register
                     </button>
                   </Nav.Link>
 
-                  <Nav.Link as={Link} to="/findnearbyplaces-api/login">
+                  <Nav.Link as={Link} to="/login">
                     <button className={`button ${styles["nav-button"]}`}>
                       Sign In
                     </button>
