@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import styles from "./Menu.module.css";
 import logo from "../assets/logo.jpeg";
+import { SearchBar } from "./SearchBar/SearchBar";
 import congifuration from "../configuration";
 import APIAccess from "../communication/APIAccess";
 import "bootstrap/dist/css/bootstrap.css";

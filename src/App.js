@@ -28,19 +28,12 @@ function App() {
       <Container fluid>
         <Row>
           <Col>
-            <Header />
-          </Col>
-        </Row>
-
-        <Row>
-          <Col>
             <Menu
               customer={customer}
               customerLoggedOut={customerLoggedOutHandler}
             />
           </Col>
         </Row>
-
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
 
@@ -71,7 +64,6 @@ function App() {
             element={<Logout customerLoggedIn={customerLoggedInHandler} />}
           ></Route>
         </Routes>
-
         <Row>
           <Col>
             <Footer />
