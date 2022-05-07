@@ -2,7 +2,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 function Home() {
-
   return (
     <div>
       <Container fluid="md">
@@ -11,7 +10,7 @@ function Home() {
         </Row>
       </Container>
     </div>
-  ) 
+  );
 }
 
 export default Home;

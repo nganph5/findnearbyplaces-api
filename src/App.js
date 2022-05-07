@@ -3,7 +3,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
-import FederatedLogin from './components/FederatedLogin';
+import FederatedLogin from "./components/FederatedLogin";
 import Logout from "./components/Logout";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -11,17 +11,17 @@ import Menu from "./components/Menu";
 import { useState } from "react";
 
 function App() {
-  const [customer, setCustomer] = useState(localStorage.getItem('customer'));
+  const [customer, setCustomer] = useState(localStorage.getItem("customer"));
 
   let customerLoggedInHandler = (customerEmail) => {
-    localStorage.setItem('customer', customerEmail);
+    localStorage.setItem("customer", customerEmail);
     setCustomer(customerEmail);
   };
 
   let customerLoggedOutHandler = () => {
-    localStorage.removeItem('customer');
+    localStorage.removeItem("customer");
     setCustomer(undefined);
-  }
+  };
 
   return (
     <HashRouter>
@@ -34,7 +34,10 @@ function App() {
 
         <Row>
           <Col>
-            <Menu customer={customer} customerLoggedOut={customerLoggedOutHandler} />
+            <Menu
+              customer={customer}
+              customerLoggedOut={customerLoggedOutHandler}
+            />
           </Col>
         </Row>
 
@@ -48,7 +51,6 @@ function App() {
           <Route exact path="/logout" element={<Logout customerLoggedIn={customerLoggedInHandler} />}></Route>
 
           <Route exact path="/" element={<Home />}></Route>
-
         </Routes>
 
         <Row>
