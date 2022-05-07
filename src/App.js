@@ -42,7 +42,7 @@ function App() {
         </Row>
 
         <Routes>
-          <Route exact path="/findnearbyplaces-api" element={<Home />}></Route>
+          <Route exact path="/" element={<Home />}></Route>
 
           <Route
             exact
