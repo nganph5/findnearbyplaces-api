@@ -36,6 +36,8 @@ function App() {
         </Row>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/login" element={<Login />}></Route>
+          <Route exact path="/register" element={<Register />}></Route>
 
           <Route
             exact
