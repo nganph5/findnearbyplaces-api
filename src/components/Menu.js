@@ -20,7 +20,7 @@ function Menu(props) {
   };
 
   return (
-    <Navbar expand="lg" style={{ marginBottom: "40px", background: "#5FA5A6"}}>
+    <Navbar expand="lg" style={{ marginBottom: "40px" }}>
       <Container>
         <div className={styles["nav-bar"]}>
           <Link to="/">
