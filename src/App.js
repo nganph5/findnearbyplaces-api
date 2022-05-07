@@ -28,31 +28,36 @@ function App() {
       <Container fluid>
         <Row>
           <Col>
-            <Header />
-          </Col>
-        </Row>
-
-        <Row>
-          <Col>
             <Menu
               customer={customer}
               customerLoggedOut={customerLoggedOutHandler}
             />
           </Col>
         </Row>
-
         <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
-          
-          <Route exact path='/login' element={<Login customerLoggedIn={customerLoggedInHandler} />}></Route>
 
-          <Route exact path='/google/:username' element={<FederatedLogin provider="google" customerLoggedIn={customerLoggedInHandler} />}></Route>
+          <Route
+            exact
+            path="/google/:username"
+            element={
+              <FederatedLogin
+                provider="google"
+                customerLoggedIn={customerLoggedInHandler}
+              />
+            }
+          ></Route>
 
-          <Route exact path="/logout" element={<Logout customerLoggedIn={customerLoggedInHandler} />}></Route>
+          <Route
+            exact
+            path="/logout"
+            element={<Logout customerLoggedIn={customerLoggedInHandler} />}
+          ></Route>
 
           <Route exact path="/" element={<Home />}></Route>
         </Routes>
-
         <Row>
           <Col>
             <Footer />

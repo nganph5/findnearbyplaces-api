@@ -62,7 +62,6 @@ let APIAccess = {
 
 
   search: (search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort) => {
-    console.log(`${backendAddress}/search`)
     console.log(search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort)
     return fetch(`${backendAddress}/search`, {
       method: 'Post',
