@@ -11,8 +11,8 @@ let FederatedLogin = (props) => {
     useEffect(() => {
       APIAccess.isLoggedIn()
       .then(x => {
+        console.log(x.req)
           if(x.done) {
-            console.log(username);
              props.customerLoggedIn(username);
              navigate('/');
           } else {
