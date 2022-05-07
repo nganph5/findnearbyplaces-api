@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/findnearbyplaces-api/static/css/main.ed4fa12b.css",
-    "main.js": "/findnearbyplaces-api/static/js/main.62390141.js",
+    "main.css": "/findnearbyplaces-api/static/css/main.57b23531.css",
+    "main.js": "/findnearbyplaces-api/static/js/main.086e3476.js",
     "static/media/logo.jpeg": "/findnearbyplaces-api/static/media/logo.3ea7a416fc8199b8ee63.jpeg",
     "index.html": "/findnearbyplaces-api/index.html",
-    "main.ed4fa12b.css.map": "/findnearbyplaces-api/static/css/main.ed4fa12b.css.map",
-    "main.62390141.js.map": "/findnearbyplaces-api/static/js/main.62390141.js.map"
+    "main.57b23531.css.map": "/findnearbyplaces-api/static/css/main.57b23531.css.map",
+    "main.086e3476.js.map": "/findnearbyplaces-api/static/js/main.086e3476.js.map"
   },
   "entrypoints": [
-    "static/css/main.ed4fa12b.css",
-    "static/js/main.62390141.js"
+    "static/css/main.57b23531.css",
+    "static/js/main.086e3476.js"
   ]
 }
