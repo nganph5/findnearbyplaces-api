@@ -20,7 +20,7 @@ function Menu(props) {
   return (
     <Navbar expand="lg" style={{ marginBottom: "40px" }}>
       <Container>
-        <Navbar.Brand as={Link} to="/findnearbyplaces-api">
+        <Navbar.Brand as={Link} to="/">
           Home
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar nav" />
@@ -31,7 +31,7 @@ function Menu(props) {
                 Signed in as {props.customer}
                 <Nav.Link
                   as={Link}
-                  to="/findnearbyplaces-api/logout"
+                  to="/logout"
                   onClick={logout}
                 >
                   Log Out
@@ -39,10 +39,10 @@ function Menu(props) {
               </Navbar.Text>
             ) : (
               <>
-                <Nav.Link as={Link} to="/findnearbyplaces-api/register">
+                <Nav.Link as={Link} to="/register">
                   Register
                 </Nav.Link>
-                <Nav.Link as={Link} to="/findnearbyplaces-api/login">
+                <Nav.Link as={Link} to="/login">
                   Login
                 </Nav.Link>
                 <Nav.Link href={google}>Sign In with Google</Nav.Link>
