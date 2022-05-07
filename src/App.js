@@ -39,15 +39,16 @@ function App() {
         </Row>
 
         <Routes>
-          <Route exact path="/register" element={<Register />}></Route>
+          <Route exact path="/findnearbyplaces-api" element={<Home />}></Route>
+
+          <Route exact path="/findnearbyplaces-api/register" element={<Register />}></Route>
           
-          <Route path='/login' element={<Login customerLoggedIn={customerLoggedInHandler} />}></Route>
+          <Route path='/findnearbyplaces-api/login' element={<Login customerLoggedIn={customerLoggedInHandler} />}></Route>
 
-          <Route path='/google/:username' element={<FederatedLogin provider="google" customerLoggedIn={customerLoggedInHandler} />}></Route>
+          <Route path='/findnearbyplaces-api/google/:username' element={<FederatedLogin provider="google" customerLoggedIn={customerLoggedInHandler} />}></Route>
 
-          <Route exact path="/logout" element={<Logout customerLoggedIn={customerLoggedInHandler} />}></Route>
+          <Route exact path="/findnearbyplaces-api/logout" element={<Logout customerLoggedIn={customerLoggedInHandler} />}></Route>
 
-          <Route exact path="/" element={<Home />}></Route>
 
         </Routes>
 
