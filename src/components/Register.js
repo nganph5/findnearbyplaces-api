@@ -26,7 +26,7 @@ function Register() {
           alert("Registration succeeded. Welcome!");
           navigate("/login");
         }else{
-          alert(x.message);
+          alert("The email exists. Please log in.");
         }
       })
       .catch(e => {
