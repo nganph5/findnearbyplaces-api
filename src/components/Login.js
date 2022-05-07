@@ -48,7 +48,7 @@ function Login(props) {
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Enter Password" value={password} onChange={onPassChanged}/>
           </Form.Group>   
-          <Button type="submit">Log In</Button>  
+          <Button type="submit" style={{ background: "#5FA5A6", border: "None" }} >Log In</Button>  
       </Form> 
     </Container>
   );

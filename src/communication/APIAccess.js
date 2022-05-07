@@ -58,6 +58,23 @@ let APIAccess = {
     .then(x => {
         return x;
     });
+  },
+
+
+  search: (search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort) => {
+    console.log(`${backendAddress}/search`)
+    console.log(search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort)
+    return fetch(`${backendAddress}/search`, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json'
+    },
+      body: JSON.stringify({search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort}) 
+    })
+    .then(x => x.json())
+    .then(x => {
+        return x;
+    });
   }
 }
 

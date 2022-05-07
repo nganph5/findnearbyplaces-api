@@ -1,7 +1,9 @@
 function Header() {
   return (
     <div>
-      <div>Find Nearby Places</div>
+      <div style={{margin: "20px", color: "grey"}}>
+        <h3>Find Nearby Places</h3>
+      </div>
     </div>
   );
 }
