@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import APIAccess from '../communication/APIAccess';
+import styles from "./Home.module.css";
+import logo from "../assets/logo.jpeg";
 
 
 function Register() {
@@ -35,19 +37,25 @@ function Register() {
     }
 
     return(
-      <Container>
-        <Form onSubmit={onSubmitHandler}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter Email" value={email} onChange={onEmailChanged}/>
-            </Form.Group>
+      <Container className={styles["landing"]}>
+        <Container className={styles["search-area"]}>
+          
+          <img src={logo} className={styles["logo"]} alt="logo" />
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Enter Password" value={passwd} onChange={onPassChanged}/>
-            </Form.Group>
-            <Button type="submit" style={{ background: "#5FA5A6", border: "None" }} >Create New Account</Button>  
-        </Form>
+          <Form onSubmit={onSubmitHandler}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder="Enter Email" value={email} onChange={onEmailChanged}/>
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Enter Password" value={passwd} onChange={onPassChanged}/>
+              </Form.Group>
+              
+              <Button type="submit" className={`button ${styles["button"]}`} >Create New Account</Button>  
+            </Form>
+          </Container>
       </Container>
     );
 }

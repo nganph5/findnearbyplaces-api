@@ -1,16 +1,17 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import logo from "../assets/logo.jpeg";
-import "./Home.css";
-import { SearchBar } from "./SearchBar/SearchBar";
+import styles from "./Home.module.css";
+import { Container } from "react-bootstrap";
+import { SearchBar } from "./SearchBar";
+
+
 function Home() {
   return (
-    <div className="landing">
-      <div className="search-area">
-        <img src={logo} className="logo" alt="logo" />
+    <Container className={styles["landing"]}>
+      <Container className={styles["search-area"]}>
+        <img src={logo} className={styles["logo"]} alt="logo" />
         <SearchBar />
-      </div>
-    </div>
+      </Container>
+    </Container>
   );
 }
 

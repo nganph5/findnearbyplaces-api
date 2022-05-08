@@ -4,6 +4,8 @@ import { Container } from "react-bootstrap";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import APIAccess from '../communication/APIAccess';
+import styles from "./Home.module.css";
+import logo from "../assets/logo.jpeg";
 
 
 function Login(props) {
@@ -39,18 +41,25 @@ function Login(props) {
   
 
   return(
-    <Container>
-      <Form onSubmit={onSubmitHandler}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Container className={styles["landing"]}>
+      <Container className={styles["search-area"]}>
+        
+        <img src={logo} className={styles["logo"]} alt="logo" />
+
+        <Form onSubmit={onSubmitHandler}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
             <Form.Control type="email" placeholder="Enter Email" value={email} onChange={onEmailChanged}/>
           </Form.Group>
+            
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Enter Password" value={password} onChange={onPassChanged}/>
           </Form.Group>   
-          <Button type="submit" style={{ background: "#5FA5A6", border: "None" }} >Log In</Button>  
-      </Form> 
+            
+          <Button type="submit" className={`button ${styles["button"]}`} >Log In</Button>  
+        </Form> 
+      </Container>
     </Container>
   );
 }
