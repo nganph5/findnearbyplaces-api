@@ -24,13 +24,12 @@
 
 .loggedin-text {
   margin-top: 1rem;
-  margin-right: 1rem;
   color: white;
 }
 
 .footer {
-  vertical-align: bottom;
   color: grey;
   float:right;
-  margin-bottom: 20px;
+  margin-top: 5em;
+  margin-bottom: 2em;
 }

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Container, Button, Form, Col } from "react-bootstrap";
+import { Container, Button, Form } from "react-bootstrap";
 import styles from "./Home.module.css";
 import APIAccess from '../communication/APIAccess';
 import logo from "../assets/logo.jpeg";
+import { MDBInput } from "mdb-react-ui-kit";
 
 function AddPlace() {
   const [name, setName] = useState('');
@@ -54,23 +55,19 @@ function AddPlace() {
         <Form onSubmit={onSubmitHandler}>
           
           <Form.Group className="mb-3">
-            <Form.Label>Name</Form.Label>
-            <Form.Control value={name} onChange={onNameChanged}/>
+            <MDBInput label="Name" value={name} onChange={onNameChanged}/>
           </Form.Group> 
 
           <Form.Group className="mb-3">
-            <Form.Label>Location</Form.Label>
-            <Form.Control value={location} onChange={onLocationChanged}/>
+            <MDBInput label="Location" value={location} onChange={onLocationChanged}/>
           </Form.Group> 
 
           <Form.Group className="mb-3">
-            <Form.Label>Category</Form.Label>
-            <Form.Control value={category_id} onChange={onCategoryChange}/>
+            <MDBInput label="Category" value={category_id} onChange={onCategoryChange}/>
           </Form.Group> 
 
           <Form.Group className="mb-3">
-            <Form.Label>Description</Form.Label>
-            <Form.Control value={description} onChange={onDescriptionChanged}/>
+            <MDBInput label="Description" value={description} onChange={onDescriptionChanged}/>
           </Form.Group> 
           
           <Button type="submit" block className={`button ${styles["button"]}`} >Add a location</Button>  

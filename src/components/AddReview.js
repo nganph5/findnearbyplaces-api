@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Container, Button, Form, Col } from "react-bootstrap";
+import { Container, Button, Form } from "react-bootstrap";
 import styles from "./Home.module.css";
 import APIAccess from '../communication/APIAccess';
 import logo from "../assets/logo.jpeg";
+import { MDBInput } from "mdb-react-ui-kit";
 
 function AddReview() {
   const [place_id, setID] = useState('');
@@ -46,18 +47,15 @@ function AddReview() {
         <Form onSubmit={onSubmitHandler}>
           
           <Form.Group className="mb-3">
-            <Form.Label>Place ID</Form.Label>
-            <Form.Control value={place_id} onChange={onIDChanged}/>
+            <MDBInput label="Place ID" value={place_id} onChange={onIDChanged}/>
           </Form.Group> 
 
           <Form.Group className="mb-3">
-            <Form.Label>Comment</Form.Label>
-            <Form.Control value={comment} onChange={onCommentChanged}/>
+            <MDBInput label="Comment" value={comment} onChange={onCommentChanged}/>
           </Form.Group> 
 
           <Form.Group className="mb-3">
-            <Form.Label>Rating</Form.Label>
-            <Form.Control value={rating} onChange={onRatingChanged}/>
+            <MDBInput label="Rating" value={rating} onChange={onRatingChanged}/>
           </Form.Group> 
           
           <Button type="submit" block className={`button ${styles["button"]}`} >Add a review</Button>  

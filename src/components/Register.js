@@ -1,9 +1,10 @@
-import { Container, Col, Form, Button } from "react-bootstrap";
+import { Container, Form, Button } from "react-bootstrap";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import APIAccess from '../communication/APIAccess';
 import styles from "./Home.module.css";
 import logo from "../assets/logo.jpeg";
+import { MDBInput } from "mdb-react-ui-kit";
 
 
 function Register() {
@@ -19,9 +20,10 @@ function Register() {
       setPass(e.target.value);
     }
 
-    let onSubmitHandler = (e) =>{
+    function onSubmitHandler() {
       APIAccess.addCustomer(email, passwd)
       .then(x => {
+        console.log(x.done)
         if (x.done){
           alert("Registration succeeded. Welcome!");
           navigate("/login");
@@ -42,16 +44,14 @@ function Register() {
 
           <Form onSubmit={onSubmitHandler}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter Email" value={email} onChange={onEmailChanged}/>
+                <MDBInput label="Email address" type="email" value={email} onChange={onEmailChanged}/>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Enter Password" value={passwd} onChange={onPassChanged}/>
+                <MDBInput label="Password" type="password" value={passwd} onChange={onPassChanged}/>
               </Form.Group>
               
-              <Button type="submit" block className={`button ${styles["button"]}`} >Create New Account</Button>  
+              <Button type="submit" block="true" className={`button ${styles["button"]}`} >Create New Account</Button>  
             </Form>
           </Container>
       </Container>

@@ -5,16 +5,15 @@ import APIAccess from '../communication/APIAccess';
 
 
 let FederatedLogin = (props) => {
-    const { username } = useParams();
+    const { username, id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
       APIAccess.isLoggedIn()
       .then(x => {
-        console.log(x.req)
           if(x.done) {
-             props.customerLoggedIn(username);
-             navigate('/');
+            props.loginHandler(id, username);
+            navigate('/');
           } else {
              alert('Something went wrong!');
              navigate('/');

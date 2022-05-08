@@ -1,18 +1,16 @@
-.landing {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .search-area {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5%;
+}
+
+.welcome{
+  margin: 2rem;
 }
 
 .logo {
   width: 180px;
-  margin: 50px 0;
 }
 
 :global(.button).button {
@@ -20,7 +18,7 @@
   background-color: #b88080;
   border: none;
   margin-top: 1em;
-  margin-bottom: 5em;
+  width: 100%;
 }
 
 .login_logo{
@@ -30,7 +28,7 @@
 
 :global(.button).google {
   height: fit-content;
-  width: 40%;
+  width: fit-content;
   border: none;
   margin: 0.5em;
   background: white;
@@ -38,6 +36,11 @@
 }
 
 :global(.button).facebook {
-  width: 40%;
+  width: fit-content;
   height: fit-content;
 }
+
+.or-div{
+  margin: 2rem;
+}
+

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Container, Button, Form, Col } from "react-bootstrap";
+import { Container, Button, Form } from "react-bootstrap";
 import styles from "./Home.module.css";
 import APIAccess from '../communication/APIAccess';
 import logo from "../assets/logo.jpeg";
+import { MDBInput } from "mdb-react-ui-kit";
 
 function DeletePlace() {
   const [place_id, setID] = useState('');
@@ -36,8 +37,7 @@ function DeletePlace() {
         
         <Form onSubmit={onSubmitHandler}>
           <Form.Group className="mb-3">
-            <Form.Label>Place ID</Form.Label>
-            <Form.Control value={place_id} onChange={onIDChanged}/>
+            <MDBInput label="Place ID" value={place_id} onChange={onIDChanged}/>
           </Form.Group> 
           
           <Button type="submit" block className={`button ${styles["button"]}`} >Delete</Button>  
