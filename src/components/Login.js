@@ -1,9 +1,10 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Container } from "react-bootstrap";
-<<<<<<< HEAD
+import { Container, Col, Row } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import APIAccess from "../communication/APIAccess";
+import styles from "./Home.module.css";
 import {
   MDBInput,
   MDBCol,
@@ -12,17 +13,7 @@ import {
   MDBBtn,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import { Link } from "react-router-dom";
-import congifuration from "../configuration";
-import APIAccess from "../communication/APIAccess";
-=======
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import APIAccess from '../communication/APIAccess';
-import styles from "./Home.module.css";
 import logo from "../assets/logo.jpeg";
-
->>>>>>> de7720508d7f570b143ecb0921c473fed76ed0b9
 
 function Login(props) {
   const [password, setPass] = useState("");
@@ -47,107 +38,69 @@ function Login(props) {
         } else {
           alert("The credentials are not valid!");
         }
-<<<<<<< HEAD
       })
       .catch((e) => {
-        alert("Something went wrong!");
-      });
-  };
-  let google = `${congifuration.backendAddress}/auth/google`;
-
-  let logout = () => {
-    APIAccess.logout()
-      .then((x) => props.customerLoggedOut())
-      .catch((e) => {
         console.log(e);
+        alert("Something went wrong!");
       });
   };
 
   return (
-    <>
-      <Container>
-        <form onSubmit={onSubmitHandler}>
-          <MDBInput
-            className="mb-4"
-            type="email"
-            placeholder="Enter Email"
-            value={email}
-            onChange={onEmailChanged}
-            id="form2Example1"
-            label="Email address"
-          />
-          <MDBInput
-            className="mb-4"
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={onPassChanged}
-            id="form2Example2"
-            label="Password"
-          />
-
-          <MDBRow className="mb-4">
-            <MDBCol className="d-flex justify-content-center">
-              <MDBCheckbox
-                id="form2Example3"
-                label="Remember me"
-                defaultChecked
-              />
-            </MDBCol>
-            <MDBCol>
-              <a href="#!">Forgot password?</a>
-            </MDBCol>
-          </MDBRow>
-
-          <MDBBtn type="submit" className="mb-4" block>
-            Sign in
-          </MDBBtn>
-
-          <div className="text-center">
-            <p>
-              Not a member? <Link to="/register">Register</Link>
-            </p>
-            <p>or sign up with:</p>
-
-            <MDBBtn floating className="mx-1">
-              <MDBIcon fab icon="google" />
-            </MDBBtn>
-          </div>
-        </form>
-      </Container>
-    </>
-=======
-    })
-    .catch(e => {
-        console.log(e);
-        alert('Something went wrong!');
-    });         
-  }
-
-  
-
-  return(
     <Container className={styles["landing"]}>
       <Container className={styles["search-area"]}>
-        
         <img src={logo} className={styles["logo"]} alt="logo" />
 
         <Form onSubmit={onSubmitHandler}>
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter Email" value={email} onChange={onEmailChanged}/>
-          </Form.Group>
-            
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Enter Password" value={password} onChange={onPassChanged}/>
-          </Form.Group>   
-            
-          <Button type="submit" className={`button ${styles["button"]}`} >Log In</Button>  
-        </Form> 
+          <MDBBtn type="submit" className="mb-4" block style={{}}>
+            <img src="https://img.icons8.com/fluency/30/000000/facebook-new.png" />
+            Continue With Facebook
+          </MDBBtn>
+          <MDBBtn
+            type="submit"
+            className="mb-4"
+            block
+            style={{ backgroundColor: "black" }}
+          >
+            <img src="https://img.icons8.com/doodle/30/000000/apple.png" />
+            Continue With Apple
+          </MDBBtn>
+          ---------- Or -----------
+          <MDBInput
+            controlId="formBasicEmail"
+            className="mb-4"
+            type="email"
+            id="form2Example1"
+            label="Email address"
+            value={email}
+            onChange={onEmailChanged}
+          />
+          <MDBInput
+            controlId="formBasicPassword"
+            className="mb-4"
+            type="password"
+            id="form2Example2"
+            label="Password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={onPassChanged}
+          />
+          <MDBBtn
+            type="submit"
+            className="mb-4"
+            block
+            style={{ backgroundColor: "#D32323" }}
+          >
+            Sign in
+          </MDBBtn>
+        </Form>
       </Container>
+      <Col>
+        <img
+          src="https://s3-media0.fl.yelpcdn.com/assets/2/www/img/7922e77f338d/signup/signup_illustration.png"
+          alt="ss"
+        />
+      </Col>
     </Container>
->>>>>>> de7720508d7f570b143ecb0921c473fed76ed0b9
   );
 }
 
