@@ -1,6 +1,7 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Container } from "react-bootstrap";
+<<<<<<< HEAD
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -14,6 +15,14 @@ import {
 import { Link } from "react-router-dom";
 import congifuration from "../configuration";
 import APIAccess from "../communication/APIAccess";
+=======
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import APIAccess from '../communication/APIAccess';
+import styles from "./Home.module.css";
+import logo from "../assets/logo.jpeg";
+
+>>>>>>> de7720508d7f570b143ecb0921c473fed76ed0b9
 
 function Login(props) {
   const [password, setPass] = useState("");
@@ -38,6 +47,7 @@ function Login(props) {
         } else {
           alert("The credentials are not valid!");
         }
+<<<<<<< HEAD
       })
       .catch((e) => {
         alert("Something went wrong!");
@@ -106,6 +116,38 @@ function Login(props) {
         </form>
       </Container>
     </>
+=======
+    })
+    .catch(e => {
+        console.log(e);
+        alert('Something went wrong!');
+    });         
+  }
+
+  
+
+  return(
+    <Container className={styles["landing"]}>
+      <Container className={styles["search-area"]}>
+        
+        <img src={logo} className={styles["logo"]} alt="logo" />
+
+        <Form onSubmit={onSubmitHandler}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" placeholder="Enter Email" value={email} onChange={onEmailChanged}/>
+          </Form.Group>
+            
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Enter Password" value={password} onChange={onPassChanged}/>
+          </Form.Group>   
+            
+          <Button type="submit" className={`button ${styles["button"]}`} >Log In</Button>  
+        </Form> 
+      </Container>
+    </Container>
+>>>>>>> de7720508d7f570b143ecb0921c473fed76ed0b9
   );
 }
 

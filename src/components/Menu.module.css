@@ -1,15 +1,37 @@
+.nav{
+  height: fit-content;
+  float: left;
+}
+
 .nav-bar {
+  width: fit-content;
   display: flex;
   background: #d32323;
-  padding: 1rem 0;
+  padding: 10px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 40px;
 }
+
 .logo {
-  width: 75px;
   margin-right: 1rem;
+  width: 75px;
 }
 
 :global(.button).nav-button {
-  margin-left: 1rem;
+  color: white;
+  background: #b88080;
+  border: none;
+}
+
+.loggedin-text {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  color: white;
+}
+
+.footer {
+  vertical-align: bottom;
+  color: grey;
+  float:right;
 }
