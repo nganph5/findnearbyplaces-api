@@ -4,11 +4,15 @@ import styles from "./Home.module.css";
 import APIAccess from '../communication/APIAccess';
 import logo from "../assets/logo.jpeg";
 import { MDBInput } from "mdb-react-ui-kit";
+import { useNavigate } from 'react-router-dom';
 
 function AddReview() {
   const [place_id, setID] = useState('');
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState('');
+  const navigate = useNavigate();
+
+  let customerID = localStorage.getItem("customerID");
 
   let onIDChanged = (e) => {
     setID(e.target.value);
@@ -24,18 +28,23 @@ function AddReview() {
 
   let onSubmitHandler = (e) => {
     e.preventDefault();
-    APIAccess.addReview(place_id, comment, rating)
-    .then(x => {
-        if(x.done) {
-          alert('Review added succesfully!');
-        } else {
-          alert(x.message);
-        }
-    })
-    .catch(e => {
-        console.log(e);
-        alert('Something went wrong!');
-    });         
+    if (!customerID){
+      alert("Please sign in to continue!")
+      navigate("/login");
+    }else{
+      APIAccess.addReview(place_id, comment, rating, customerID)
+      .then(x => {
+          if(x.done) {
+            alert('Review added succesfully!');
+          } else {
+            alert('Cannot add review. Please check your input.');
+          }
+      })
+      .catch(e => {
+          console.log(e);
+          alert('Something went wrong!');
+      });  
+    }       
   }
 
   return (

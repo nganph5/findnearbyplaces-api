@@ -75,13 +75,13 @@ let APIAccess = {
     });
   },
 
-  addPlace: (name, category_id, latitude, longitude, description) => {
+  addPlace: (name, category_id, latitude, longitude, description, customerID) => {
     return fetch(`${backendAddress}/place`, {
       method: 'Post',
       headers: {
         'Content-Type': 'application/json'
     },
-      body: JSON.stringify({name, category_id, latitude, longitude, description}) 
+      body: JSON.stringify({name, category_id, latitude, longitude, description, customerID}) 
     })
     .then(x => x.json())
     .then(x => {
@@ -89,13 +89,13 @@ let APIAccess = {
     })
   },
 
-  addReview: (place_id, comment, rating) => {
+  addReview: (place_id, comment, rating, customerID) => {
     return fetch(`${backendAddress}/review`, {
       method: 'Post',
       headers: {
         'Content-Type': 'application/json'
     },
-      body: JSON.stringify({place_id, comment, rating}) 
+      body: JSON.stringify({place_id, comment, rating, customerID}) 
     })
     .then(x => x.json())
     .then(x => {
@@ -103,13 +103,13 @@ let APIAccess = {
     })
   },
 
-  editPlace: (place_id, name, category_id, latitude, longitude, description) => {
+  editPlace: (place_id, name, category_id, latitude, longitude, description, customerID) => {
     return fetch(`${backendAddress}/place`, {
       method: 'Put',
       headers: {
         'Content-Type': 'application/json'
     },
-      body: JSON.stringify({place_id, name, category_id, latitude, longitude, description}) 
+      body: JSON.stringify({place_id, name, category_id, latitude, longitude, description, customerID}) 
     })
     .then(x => x.json())
     .then(x => {
@@ -117,13 +117,13 @@ let APIAccess = {
     })
   },
   
-  deletePlace: (place_id) => {
+  deletePlace: (place_id, customerID) => {
     return fetch(`${backendAddress}/place`, {
       method: 'Delete',
       headers: {
         'Content-Type': 'application/json'
     },
-      body: JSON.stringify({place_id}) 
+      body: JSON.stringify({place_id, customerID}) 
     })
     .then(x => x.json())
     .then(x => {

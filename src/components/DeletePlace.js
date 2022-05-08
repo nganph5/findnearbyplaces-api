@@ -4,29 +4,38 @@ import styles from "./Home.module.css";
 import APIAccess from '../communication/APIAccess';
 import logo from "../assets/logo.jpeg";
 import { MDBInput } from "mdb-react-ui-kit";
+import { useNavigate } from 'react-router-dom';
+
 
 function DeletePlace() {
   const [place_id, setID] = useState('');
+  const navigate = useNavigate();
+
+  let customerID = localStorage.getItem("customerID");
 
   let onIDChanged = (e) => {
     setID(e.target.value);
   }
 
-
   let onSubmitHandler = (e) => {
     e.preventDefault();
-    APIAccess.deletePlace(place_id)
-    .then(x => {
-        if(x.done) {
-          alert('Place deleted succesfully!');
-        } else {
+    if (!customerID){
+      alert("Please sign in to continue!")
+      navigate("/login");
+    }else{
+      APIAccess.deletePlace(place_id, customerID)
+      .then(x => {
+          if(x.done) {
+            alert('Place deleted succesfully!');
+          } else {
+            alert('Cannot delete place. Please check your input.');
+          }
+      })
+      .catch(e => {
+          console.log(e);
           alert('Something went wrong!');
-        }
-    })
-    .catch(e => {
-        console.log(e);
-        alert('Something went wrong!');
-    });         
+      });   
+    }      
   }
 
   return (

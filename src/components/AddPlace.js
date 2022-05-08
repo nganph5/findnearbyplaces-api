@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
+import { useNavigate } from 'react-router-dom';
 import styles from "./Home.module.css";
 import APIAccess from '../communication/APIAccess';
 import logo from "../assets/logo.jpeg";
@@ -10,6 +11,9 @@ function AddPlace() {
   const [category_id, setCategory] = useState('');
   const [location, setLocation] = useState('');
   const [description, setDescription] = useState('');
+  const navigate = useNavigate();
+
+  let customerID = localStorage.getItem("customerID");
 
   let onNameChanged = (e) => {
     setName(e.target.value);
@@ -29,21 +33,27 @@ function AddPlace() {
 
   let onSubmitHandler = (e) => {
     e.preventDefault();
-    let latitude = location.split(",")[0];
-    let longitude = location.split(",")[1];
+    if (!customerID){
+      alert("Please sign in to continue!")
+      navigate("/login");
+    }else{
+      
+      let latitude = location.split(",")[0];
+      let longitude = location.split(",")[1];
 
-    APIAccess.addPlace(name, category_id, latitude, longitude, description)
-    .then(x => {
-        if(x.done) {
-          alert('Place added succesfully!');
-        } else {
+      APIAccess.addPlace(name, category_id, latitude, longitude, description, customerID)
+      .then(x => {
+          if(x.done) {
+            alert('Place added succesfully!');
+          } else {
+            alert('Cannot add to database. Please check your input.');
+          }
+        })
+      .catch(e => {
+          console.log(e);
           alert('Something went wrong!');
-        }
-    })
-    .catch(e => {
-        console.log(e);
-        alert('Something went wrong!');
-    });         
+      });         
+    }
   }
 
   return (
@@ -59,7 +69,7 @@ function AddPlace() {
           </Form.Group> 
 
           <Form.Group className="mb-3">
-            <MDBInput label="Location" value={location} onChange={onLocationChanged}/>
+            <MDBInput label="Location (lat,long)" value={location} onChange={onLocationChanged}/>
           </Form.Group> 
 
           <Form.Group className="mb-3">
