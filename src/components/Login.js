@@ -52,14 +52,14 @@ function Login(props) {
             <Form.Control type="email" placeholder="Enter Email" value={email} onChange={onEmailChanged}/>
           </Form.Group>
             
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Enter Password" value={password} onChange={onPassChanged}/>
-          </Form.Group>   
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Enter Password" value={password} onChange={onPassChanged}/>
+            </Form.Group>   
             
-          <Button type="submit" className={`button ${styles["button"]}`} >Log In</Button>  
-        </Form> 
-      </Container>
+            <Button type="submit" className={`button ${styles["button"]}`} >Log In</Button>  
+          </Form> 
+        </Container>
     </Container>
   );
 }

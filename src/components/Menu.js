@@ -30,6 +30,22 @@ function Menu(props) {
 
         <Navbar.Collapse id="basic-navbar nav">
           <Nav>
+            <Nav.Link as={Link} to="/addplace">
+              <Button className={`button ${styles["nav-button"]}`}> Add a place </Button>
+            </Nav.Link>
+
+            <Nav.Link as={Link} to="/editplace">
+                <Button className={`button ${styles["nav-button"]}`}> Edit a place </Button>
+            </Nav.Link>
+
+            <Nav.Link as={Link} to="/deleteplace">
+                <Button className={`button ${styles["nav-button"]}`}> Delete a place </Button>
+            </Nav.Link>
+
+            <Nav.Link as={Link} to="/addreview">
+                <Button className={`button ${styles["nav-button"]}`}> Add a review </Button>
+            </Nav.Link>
+
             {props.customer ? (
               <>
                 <p className={styles["loggedin-text"]} > Signed in as {props.customer}</p>

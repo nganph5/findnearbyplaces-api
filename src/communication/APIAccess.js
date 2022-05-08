@@ -62,7 +62,6 @@ let APIAccess = {
 
 
   search: (search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort) => {
-    console.log(search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort)
     return fetch(`${backendAddress}/search`, {
       method: 'Post',
       headers: {
@@ -74,6 +73,62 @@ let APIAccess = {
     .then(x => {
         return x;
     });
+  },
+
+  addPlace: (name, category_id, latitude, longitude, description) => {
+    return fetch(`${backendAddress}/place`, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json'
+    },
+      body: JSON.stringify({name, category_id, latitude, longitude, description}) 
+    })
+    .then(x => x.json())
+    .then(x => {
+        return x;
+    })
+  },
+
+  addReview: (place_id, comment, rating) => {
+    return fetch(`${backendAddress}/review`, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json'
+    },
+      body: JSON.stringify({place_id, comment, rating}) 
+    })
+    .then(x => x.json())
+    .then(x => {
+        return x;
+    })
+  },
+
+  editPlace: (place_id, name, category_id, latitude, longitude, description) => {
+    return fetch(`${backendAddress}/place`, {
+      method: 'Put',
+      headers: {
+        'Content-Type': 'application/json'
+    },
+      body: JSON.stringify({place_id, name, category_id, latitude, longitude, description}) 
+    })
+    .then(x => x.json())
+    .then(x => {
+        return x;
+    })
+  },
+  
+  deletePlace: (place_id) => {
+    return fetch(`${backendAddress}/place`, {
+      method: 'Delete',
+      headers: {
+        'Content-Type': 'application/json'
+    },
+      body: JSON.stringify({place_id}) 
+    })
+    .then(x => x.json())
+    .then(x => {
+        return x;
+    })
   }
 }
 
