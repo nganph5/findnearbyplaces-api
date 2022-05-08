@@ -30,7 +30,7 @@ function Register() {
         }
       })
       .catch(e => {
-        alert("Registration failed.");
+        alert("Registration failed due to some error.");
       })
     }
 
