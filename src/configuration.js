@@ -1,6 +1,6 @@
 let congifuration = {
-  backendAddress: 'http://localhost:4002'
-  //backendAddress: 'https://yelp-like.herokuapp.com'
+  //backendAddress: 'http://localhost:4002'
+  backendAddress: 'https://yelp-like.herokuapp.com'
 
 };
 
