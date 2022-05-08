@@ -92,7 +92,7 @@ export function SearchBar() {
         <Form.Control value={sort} onChange={onSortChanged}/>
       </Form.Group>  
       
-      <Button type="submit" className={`button ${styles["button"]}`} >Search</Button>  
+      <Button type="submit" block className={`button ${styles["button"]}`} >Search</Button>  
     </Form> 
   );
 }

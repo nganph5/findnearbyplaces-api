@@ -1,22 +1,20 @@
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import APIAccess from "../communication/APIAccess";
 import styles from "./Home.module.css";
 import {
   MDBInput,
-  MDBCol,
-  MDBRow,
-  MDBCheckbox,
-  MDBBtn,
-  MDBIcon,
+  MDBBtn
 } from "mdb-react-ui-kit";
 import logo from "../assets/logo.jpeg";
+import congifuration from "../configuration";
 
 
 function Login(props) {
+  let google = `${congifuration.backendAddress}/auth/google`;
+
   const [password, setPass] = useState("");
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
@@ -51,21 +49,22 @@ function Login(props) {
         <Container className={styles["search-area"]}>
           <img src={logo} className={styles["logo"]} alt="logo" />
   
-          <Form onSubmit={onSubmitHandler}>
-            <MDBBtn type="submit" className="mb-4" block style={{}}>
-              <img src="https://img.icons8.com/fluency/30/000000/facebook-new.png" />
+            <MDBBtn type="submit" className={`button ${styles["facebook"]}`}>
+              <img src="https://img.icons8.com/fluency/30/000000/facebook-new.png" alt="facebook"
+              className={styles["login_logo"]}/>
               Continue With Facebook
             </MDBBtn>
+
             <MDBBtn
-              type="submit"
-              className="mb-4"
-              block
-              style={{ backgroundColor: "black" }}
-            >
-              <img src="https://img.icons8.com/doodle/30/000000/apple.png" />
-              Continue With Apple
+              href={google} type="submit" className={`button ${styles["google"]}`}>
+              <img src="https://img.icons8.com/color/48/000000/google-logo.png" alt="google"
+              className={styles["login_logo"]} />
+              Continue With Google
             </MDBBtn>
-            ---------- Or -----------
+
+            <p>---------- Or -----------</p>
+
+            <Form onSubmit={onSubmitHandler}>
             <MDBInput
               controlId="formBasicEmail"
               className="mb-4"
@@ -86,11 +85,7 @@ function Login(props) {
               onChange={onPassChanged}
             />
             <MDBBtn
-              type="submit"
-              className="mb-4"
-              block
-              style={{ backgroundColor: "#D32323" }}
-            >
+              type="submit" block className={`button ${styles["button"]}`} >
               Sign in
             </MDBBtn>
           </Form>

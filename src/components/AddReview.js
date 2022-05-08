@@ -30,7 +30,7 @@ function AddReview() {
         if(x.done) {
           alert('Review added succesfully!');
         } else {
-          alert('Something went wrong!');
+          alert(x.message);
         }
     })
     .catch(e => {
@@ -62,7 +62,7 @@ function AddReview() {
             <Form.Control value={rating} onChange={onRatingChanged}/>
           </Form.Group> 
           
-          <Button type="submit" className={`button ${styles["button"]}`} >Add a review</Button>  
+          <Button type="submit" block className={`button ${styles["button"]}`} >Add a review</Button>  
         </Form> 
         </Container>
     </Container>

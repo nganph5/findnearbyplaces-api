@@ -5,12 +5,10 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import styles from "./Menu.module.css";
 import logo from "../assets/logo.jpeg";
-import congifuration from "../configuration";
 import APIAccess from "../communication/APIAccess";
 import "bootstrap/dist/css/bootstrap.css";
 
 function Menu(props) {
-  let google = `${congifuration.backendAddress}/auth/google`;
 
   let logout = () => {
     APIAccess.logout()
@@ -62,10 +60,6 @@ function Menu(props) {
 
                 <Nav.Link as={Link} to="/login"> 
                   <Button className={`button ${styles["nav-button"]}`}> Sign In </Button>
-                </Nav.Link>
-
-                <Nav.Link href={google}>
-                  <Button className={`button ${styles["nav-button"]}`}> Sign In With Google </Button>
                 </Nav.Link>
               </>
             )}

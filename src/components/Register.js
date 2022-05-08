@@ -53,7 +53,7 @@ function Register() {
                 <Form.Control type="password" placeholder="Enter Password" value={passwd} onChange={onPassChanged}/>
               </Form.Group>
               
-              <Button type="submit" className={`button ${styles["button"]}`} >Create New Account</Button>  
+              <Button type="submit" block className={`button ${styles["button"]}`} >Create New Account</Button>  
             </Form>
           </Container>
       </Container>

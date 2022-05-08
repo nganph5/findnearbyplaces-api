@@ -42,7 +42,7 @@ function DeletePlace() {
             <Form.Control value={place_id} onChange={onIDChanged}/>
           </Form.Group> 
           
-          <Button type="submit" className={`button ${styles["button"]}`} >Delete</Button>  
+          <Button type="submit" block className={`button ${styles["button"]}`} >Delete</Button>  
         </Form> 
         </Container>
     </Container>
