@@ -49,7 +49,7 @@ function DeletePlace() {
             <MDBInput label="Place ID" value={place_id} onChange={onIDChanged}/>
           </Form.Group> 
           
-          <Button type="submit" block className={`button ${styles["button"]}`} >Delete</Button>  
+          <Button type="submit" block="true" className={`button ${styles["button"]}`} >Delete</Button>  
         </Form> 
         </Container>
     </Container>

@@ -80,7 +80,7 @@ function AddPlace() {
             <MDBInput label="Description" value={description} onChange={onDescriptionChanged}/>
           </Form.Group> 
           
-          <Button type="submit" block className={`button ${styles["button"]}`} >Add a location</Button>  
+          <Button type="submit" block="true" className={`button ${styles["button"]}`} >Add a location</Button>  
         </Form> 
         </Container>
     </Container>

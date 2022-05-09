@@ -45,3 +45,13 @@
   margin: 2rem;
 }
 
+.place-name{
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  background: #b88080;
+  color: white;
+}
+
+.place-info{
+  font-weight: bold;
+}

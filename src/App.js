@@ -17,8 +17,13 @@ import { useState } from "react";
 function App() {
   const [customerID, setID] = useState(localStorage.getItem("customerID"));
   const [customerEmail, setEmail] = useState(localStorage.getItem("customerEmail"));
-  const [searchResult, setResult] = useState(localStorage.getItem("searchResult"));
 
+  Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+  }
+  Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+  }
 
   function loginHandler(id, username){
     localStorage.setItem("customerID", id);
@@ -35,8 +40,7 @@ function App() {
   }
 
   function searchHandler(searchResult){
-    localStorage.setItem("searchResult", searchResult);
-    setResult(localStorage.getItem("searchResult"));
+    localStorage.setObj("searchResult", searchResult);
   }
 
 
@@ -58,7 +62,7 @@ function App() {
           <Route exact path="/deleteplace" element={<DeletePlace />}></Route>
           <Route exact path="/addreview" element={<AddReview />}></Route>
 
-          <Route exact path="/" element={<Home searchResult={searchResult} />}></Route>
+          <Route exact path="/" element={<Home />}></Route>
         </Routes>
         <Row>
           <Col>

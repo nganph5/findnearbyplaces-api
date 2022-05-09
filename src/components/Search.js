@@ -45,7 +45,6 @@ function Search(props) {
     e.preventDefault();
     APIAccess.search(search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort)
     .then(x => {
-      console.log(x)
         if(x.done) {
           props.searchHandler(x.result);
           navigate('/')
@@ -95,7 +94,7 @@ function Search(props) {
             <MDBInput label="Sort Mode" value={sort} onChange={onSortChanged}/>
           </Form.Group>  
           
-          <Button type="submit" block className={`button ${styles["button"]}`} >Search</Button>  
+          <Button type="submit" block="true" className={`button ${styles["button"]}`} >Search</Button>  
         </Form> 
       </Container>
     </Container>

@@ -67,7 +67,7 @@ function AddReview() {
             <MDBInput label="Rating" value={rating} onChange={onRatingChanged}/>
           </Form.Group> 
           
-          <Button type="submit" block className={`button ${styles["button"]}`} >Add a review</Button>  
+          <Button type="submit" block="true" className={`button ${styles["button"]}`} >Add a review</Button>  
         </Form> 
         </Container>
     </Container>

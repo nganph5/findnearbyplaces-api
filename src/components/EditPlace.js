@@ -87,7 +87,7 @@ function EditPlace() {
             <MDBInput label="Description" value={description} onChange={onDescriptionChanged}/>
           </Form.Group> 
           
-          <Button type="submit" block className={`button ${styles["button"]}`} >Edit place</Button>  
+          <Button type="submit" block="true" className={`button ${styles["button"]}`} >Edit place</Button>  
         </Form> 
         </Container>
     </Container>
