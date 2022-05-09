@@ -16,9 +16,15 @@ import { useState } from "react";
 
 function App() {
   const [customerID, setID] = useState(localStorage.getItem("customerID"));
+<<<<<<< HEAD
   const [customerEmail, setEmail] = useState(
     localStorage.getItem("customerEmail")
   );
+=======
+  const [customerEmail, setEmail] = useState(localStorage.getItem("customerEmail"));
+  const [searchResult, setResult] = useState(localStorage.getItem("searchResult"));
+
+>>>>>>> 309b0553cfc7da4abe805617860a1889955719bd
 
   function loginHandler(id, username) {
     localStorage.setItem("customerID", id);
@@ -33,6 +39,12 @@ function App() {
     setID(localStorage.getItem("customerID"));
     setEmail(localStorage.getItem("customerEmail"));
   }
+
+  function searchHandler(searchResult){
+    localStorage.setItem("searchResult", searchResult);
+    setResult(localStorage.getItem("searchResult"));
+  }
+
 
   return (
     <HashRouter>
@@ -63,6 +75,7 @@ function App() {
             element={<Login loginHandler={loginHandler} />}
           ></Route>
           <Route exact path="/register" element={<Register />}></Route>
+<<<<<<< HEAD
           <Route
             exact
             path="/google/:username/:id"
@@ -71,12 +84,16 @@ function App() {
             }
           ></Route>
           <Route exact path="/search" element={<Search />}></Route>
+=======
+          <Route exact path="/google/:username/:id" element={<FederatedLogin provider="google" loginHandler={loginHandler} />}></Route>
+          <Route exact path="/search" element={<Search searchHandler={searchHandler} />}></Route>
+>>>>>>> 309b0553cfc7da4abe805617860a1889955719bd
           <Route exact path="/addplace" element={<AddPlace />}></Route>
           <Route exact path="/editplace" element={<EditPlace />}></Route>
           <Route exact path="/deleteplace" element={<DeletePlace />}></Route>
           <Route exact path="/addreview" element={<AddReview />}></Route>
 
-          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/" element={<Home searchResult={searchResult} />}></Route>
         </Routes>
         <Row>
           <Col>

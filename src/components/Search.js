@@ -6,7 +6,12 @@ import APIAccess from "../communication/APIAccess";
 import { MDBInput } from "mdb-react-ui-kit";
 import logo from "../assets/logo.jpeg";
 
+<<<<<<< HEAD
 function Search() {
+=======
+
+function Search(props) {
+>>>>>>> 309b0553cfc7da4abe805617860a1889955719bd
   const [search_term, setTerm] = useState("");
   const [user_location, setLocation] = useState("");
   const [maximum_results_to_return, setMaxRes] = useState("");
@@ -41,6 +46,7 @@ function Search() {
 
   let onSubmitHandler = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     APIAccess.search(
       search_term,
       user_location,
@@ -54,6 +60,16 @@ function Search() {
           navigate("/display");
         } else {
           alert("Something went wrong!");
+=======
+    APIAccess.search(search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort)
+    .then(x => {
+      console.log(x)
+        if(x.done) {
+          props.searchHandler(x.result);
+          navigate('/')
+        } else {
+          alert('Cannot find any place. Please check your input.');
+>>>>>>> 309b0553cfc7da4abe805617860a1889955719bd
         }
       })
       .catch((e) => {
@@ -77,12 +93,17 @@ function Search() {
           </Form.Group>
 
           <Form.Group className="mb-3">
+<<<<<<< HEAD
             <MDBInput
               label="Location"
               value={user_location}
               onChange={onLocationChanged}
             />
           </Form.Group>
+=======
+            <MDBInput label="Location (lat,long)" value={user_location} onChange={onLocationChanged}/>
+          </Form.Group>   
+>>>>>>> 309b0553cfc7da4abe805617860a1889955719bd
 
           <Form.Group className="mb-3">
             <MDBInput
