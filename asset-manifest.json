@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/findnearbyplaces-api/static/css/main.d1287ce0.css",
-    "main.js": "/findnearbyplaces-api/static/js/main.c484c545.js",
-    "static/media/bg1.jpg": "/findnearbyplaces-api/static/media/bg1.6ef6db913df93a631506.jpg",
+    "main.css": "/findnearbyplaces-api/static/css/main.72335efc.css",
+    "main.js": "/findnearbyplaces-api/static/js/main.8e811821.js",
     "static/media/bg2.jpg": "/findnearbyplaces-api/static/media/bg2.3d2794dc83c9f6633434.jpg",
     "static/media/logo.jpeg": "/findnearbyplaces-api/static/media/logo.3ea7a416fc8199b8ee63.jpeg",
     "index.html": "/findnearbyplaces-api/index.html",
-    "main.d1287ce0.css.map": "/findnearbyplaces-api/static/css/main.d1287ce0.css.map",
-    "main.c484c545.js.map": "/findnearbyplaces-api/static/js/main.c484c545.js.map"
+    "main.72335efc.css.map": "/findnearbyplaces-api/static/css/main.72335efc.css.map",
+    "main.8e811821.js.map": "/findnearbyplaces-api/static/js/main.8e811821.js.map"
   },
   "entrypoints": [
-    "static/css/main.d1287ce0.css",
-    "static/js/main.c484c545.js"
+    "static/css/main.72335efc.css",
+    "static/js/main.8e811821.js"
   ]
 }
