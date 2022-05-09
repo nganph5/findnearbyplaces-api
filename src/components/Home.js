@@ -1,11 +1,12 @@
 import { Container, Col, Row, Card } from "react-bootstrap";
 import styles from "./Home.module.css";
-import bg1 from "../assets/bg1.jpg";
 
 function Home(props) {
   let customerID = localStorage.getItem("customerID");
   let customerEmail = localStorage.getItem("customerEmail");
-  let searchResult = localStorage.getObj("searchResult")
+  let searchResult = sessionStorage.getObj("searchResult");
+
+  localStorage.removeItem("searchResult");
 
   return (
     <Container className={styles["landing"]}>
@@ -46,12 +47,22 @@ export const Display = ({result}) => {
             <Card>
               <Card.Img variant="top" src={row.file} alt="location" />
               <Card.Body>
-                <Card.Title className={styles["place-name"]}>{row.name}</Card.Title>
-                <Card.Text><div className={styles["place-info"]}>Place ID</div> {row.id}</Card.Text>
-                <Card.Text><div className={styles["place-info"]}>Location</div>({row.latitude}, {row.longitude})</Card.Text>
-                <Card.Text><div className={styles["place-info"]}>Description</div>{row.description}</Card.Text>
-                <Card.Text><div className={styles["place-info"]}>Category</div>{row.category_name}</Card.Text>
-                <Card.Text><div className={styles["place-info"]}>Average rating</div>{parseFloat(row.avg_rating)}</Card.Text>
+                <Card.Title className={styles["place-name"]}>{row.name}/</Card.Title>
+
+                <div className={styles["place-info"]}>Place ID</div>
+                <div className={styles["place-detail"]}>{row.id}</div>
+
+                <div className={styles["place-info"]}>Location</div>
+                <div className={styles["place-detail"]}>({row.latitude}, {row.longitude})</div>
+
+                <div className={styles["place-info"]}>Description</div>
+                <div className={styles["place-detail"]}>{row.description}</div>
+                
+                <div className={styles["place-info"]}>Category</div>
+                <div className={styles["place-detail"]}>{row.category_name}</div>
+                
+                <div className={styles["place-info"]}>Average rating</div>
+                <div className={styles["place-detail"]}>{parseFloat(row.avg_rating)}</div>
               </Card.Body>
             </Card>
           </Col>

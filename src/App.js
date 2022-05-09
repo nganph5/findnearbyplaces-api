@@ -40,7 +40,7 @@ function App() {
   }
 
   function searchHandler(searchResult){
-    localStorage.setObj("searchResult", searchResult);
+    sessionStorage.setObj("searchResult", searchResult);
   }
 
   return (

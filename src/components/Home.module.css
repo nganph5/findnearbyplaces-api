@@ -62,4 +62,10 @@
 
 .place-info{
   font-weight: bold;
+  color: grey;
+}
+
+.place-detail{
+  color: black;
+  margin-bottom: 1rem;
 }
