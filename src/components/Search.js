@@ -7,7 +7,7 @@ import { MDBInput } from "mdb-react-ui-kit";
 import logo from "../assets/logo.jpeg";
 
 
-function Search() {
+function Search(props) {
   const [search_term, setTerm] = useState("");
   const [user_location, setLocation] = useState("");
   const [maximum_results_to_return, setMaxRes] = useState("");
@@ -45,10 +45,12 @@ function Search() {
     e.preventDefault();
     APIAccess.search(search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort)
     .then(x => {
+      console.log(x)
         if(x.done) {
-          navigate('/display')
+          props.searchHandler(x.result);
+          navigate('/')
         } else {
-          alert('Something went wrong!');
+          alert('Cannot find any place. Please check your input.');
         }
     })
     .catch(e => {
@@ -70,7 +72,7 @@ function Search() {
           </Form.Group>
             
           <Form.Group className="mb-3">
-            <MDBInput label="Location" value={user_location} onChange={onLocationChanged}/>
+            <MDBInput label="Location (lat,long)" value={user_location} onChange={onLocationChanged}/>
           </Form.Group>   
 
                   

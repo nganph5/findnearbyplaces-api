@@ -10,11 +10,14 @@ function Home(props) {
     <Container className={styles["landing"]}>
       <Container className={styles["search-area"]}>
 
-        {customerID && customerID
+        {customerID && customerEmail
           ? 
           <>
-            <h5 className={styles["welcome"]}> Hello, {customerEmail}! </h5>
-            <p>Your ID is: {customerID}</p>
+          {props.searchResult.length > 0 ? 
+            <h5 className={styles["search-result"]}> {props.searchResult} </h5>
+            :
+            <h5 className={styles["search-result"]}> No place found yet </h5>
+          }
           </>
           : 
           <>

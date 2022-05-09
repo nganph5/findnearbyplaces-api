@@ -35,7 +35,7 @@ function AddReview() {
       APIAccess.addReview(place_id, comment, rating, customerID)
       .then(x => {
           if(x.done) {
-            alert('Review added succesfully!');
+            alert('Review added successfully!');
           } else {
             alert('Cannot add review. Please check your input.');
           }
