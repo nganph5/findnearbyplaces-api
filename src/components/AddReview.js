@@ -4,6 +4,7 @@ import Select from 'react-select'
 import styles from "./Home.module.css";
 import APIAccess from '../communication/APIAccess';
 import logo from "../assets/logo.jpeg";
+import star from "../assets/star.png";
 import { MDBInput } from "mdb-react-ui-kit";
 import { useNavigate } from 'react-router-dom';
 
@@ -16,12 +17,22 @@ function AddReview() {
 
   let customerID = localStorage.getItem("customerID");
 
+  let starIcon = <img src={star} className={styles["star"]} alt="star" />;
+  let ratingIcons = []
+  for (let i = 0; i < 5; i++) {
+    let newDiv = [];
+    for (let j = 0; j <= i; j++) {
+      newDiv.push(starIcon);
+    }
+    ratingIcons.push(newDiv)
+  }
+  
   let ratingOptions = [
-    { value: '1', label: '1' },
-    { value: '2', label: '2' },
-    { value: '3', label: '3' },
-    { value: '4', label: '4' },
-    { value: '5', label: '5' }
+    { value: '1', label: ratingIcons[0] },
+    { value: '2', label: ratingIcons[1] },
+    { value: '3', label: ratingIcons[2] },
+    { value: '4', label: ratingIcons[3] },
+    { value: '5', label: ratingIcons[4] }
   ];
 
 
