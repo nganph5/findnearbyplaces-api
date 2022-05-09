@@ -13,7 +13,7 @@ function Home(props) {
         {customerID && customerEmail
           ? 
           <>
-          {props.searchResult.length > 0 ? 
+          {props.searchResult && props.searchResult.length > 0 ? 
             <h5 className={styles["search-result"]}> {props.searchResult} </h5>
             :
             <h5 className={styles["search-result"]}> No place found yet </h5>
