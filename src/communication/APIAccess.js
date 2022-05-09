@@ -129,6 +129,21 @@ let APIAccess = {
     .then(x => {
         return x;
     })
+  },
+
+  getCategory: () => {
+    return fetch(`${backendAddress}/category`, {
+      method: 'Get',
+      credentials: "include",
+      headers: {
+          'Content-Type': 'application/json',
+          "Access-Control-Allow-Credentials": true
+      }
+    })
+    .then(x => x.json())
+    .then(x => {
+        return x;
+    })
   }
 }
 

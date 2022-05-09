@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import Select from 'react-select'
 import styles from "./Home.module.css";
 import APIAccess from "../communication/APIAccess";
 import logo from "../assets/logo.jpeg";
@@ -9,22 +10,35 @@ import { MDBInput } from "mdb-react-ui-kit";
 function AddPlace() {
   const [name, setName] = useState("");
   const [category_id, setCategory] = useState("");
-  const [location, setLocation] = useState("");
+  const [latitude, setLat] = useState("");
+  const [longitude, setLong] = useState("");
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
   let customerID = localStorage.getItem("customerID");
 
+
+  let categories = localStorage.getObj("categories");
+  let categoryOptions = [];
+  categories.forEach(category => {
+    categoryOptions.push({value: category.id, label: category.id + " - " + category.name})
+  })
+
+
   let onNameChanged = (e) => {
     setName(e.target.value);
   };
 
-  let onCategoryChange = (e) => {
-    setCategory(e.target.value);
+  let onCategoryChanged = (e) => {
+    setCategory(e ? e.value : '');
   };
 
-  let onLocationChanged = (e) => {
-    setLocation(e.target.value);
+  let onLatChanged = (e) => {
+    setLat(e.target.value);
+  };
+
+  let onLongChanged = (e) => {
+    setLong(e.target.value);
   };
 
   let onDescriptionChanged = (e) => {
@@ -37,9 +51,6 @@ function AddPlace() {
       alert("Please sign in to continue!");
       navigate("/login");
     } else {
-      let latitude = location.split(",")[0];
-      let longitude = location.split(",")[1];
-
       APIAccess.addPlace(
         name,
         category_id,
@@ -73,23 +84,23 @@ function AddPlace() {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <MDBInput
-              label="Location (lat,long)"
-              value={location}
-              onChange={onLocationChanged}
-            />
+            <MDBInput label="Latitude" type="number" value={latitude} onChange={onLatChanged}/>
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <MDBInput label="Longitude" type="number" value={longitude} onChange={onLongChanged}/>
           </Form.Group>
 
-          <Form.Group className="mb-3">
-            <MDBInput
-              label="Category"
-              value={category_id}
-              onChange={onCategoryChange}
-            />
-          </Form.Group>
+          <Select placeholder="Category"
+            className={styles["options"]} 
+            value={categoryOptions.find(item => item.value === category_id)}
+            onChange={onCategoryChanged} 
+            options={categoryOptions}
+          />
 
           <Form.Group className="mb-3">
-            <MDBInput label="Description" value={description} onChange={onDescriptionChanged}/>
+            <MDBInput label="Description" 
+            value={description} 
+            onChange={onDescriptionChanged}/>
           </Form.Group> 
           
           <Button type="submit" block="true" className={`button ${styles["button"]}`} >Add a location</Button>  

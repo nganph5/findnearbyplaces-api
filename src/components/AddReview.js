@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
+import Select from 'react-select'
 import styles from "./Home.module.css";
 import APIAccess from '../communication/APIAccess';
 import logo from "../assets/logo.jpeg";
@@ -12,7 +13,17 @@ function AddReview() {
   const [rating, setRating] = useState('');
   const navigate = useNavigate();
 
+
   let customerID = localStorage.getItem("customerID");
+
+  let ratingOptions = [
+    { value: '1', label: '1' },
+    { value: '2', label: '2' },
+    { value: '3', label: '3' },
+    { value: '4', label: '4' },
+    { value: '5', label: '5' }
+  ];
+
 
   let onIDChanged = (e) => {
     setID(e.target.value);
@@ -23,7 +34,7 @@ function AddReview() {
   }
 
   let onRatingChanged = (e) => {
-    setRating(e.target.value);
+    setRating(e ? e.value : '');
   }
 
   let onSubmitHandler = (e) => {
@@ -59,14 +70,20 @@ function AddReview() {
             <MDBInput label="Place ID" value={place_id} onChange={onIDChanged}/>
           </Form.Group> 
 
+          <Select placeholder="Rating"
+            className={styles["options"]} 
+            value={ratingOptions.find(item => item.value === rating)}
+            onChange={onRatingChanged} 
+            options={ratingOptions}
+          />
+          
           <Form.Group className="mb-3">
-            <MDBInput label="Comment" value={comment} onChange={onCommentChanged}/>
+            <MDBInput label="Comment"
+             value={comment} 
+             className={styles["long-input"]} 
+             onChange={onCommentChanged}/>
           </Form.Group> 
 
-          <Form.Group className="mb-3">
-            <MDBInput label="Rating" value={rating} onChange={onRatingChanged}/>
-          </Form.Group> 
-          
           <Button type="submit" block="true" className={`button ${styles["button"]}`} >Add a review</Button>  
         </Form> 
         </Container>

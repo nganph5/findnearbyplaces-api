@@ -12,7 +12,9 @@ import DeletePlace from "./components/DeletePlace";
 import AddReview from "./components/AddReview";
 import Search from "./components/Search";
 import bg2 from "./assets/bg2.jpg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import APIAccess from "./communication/APIAccess";
+
 
 function App() {
   const [customerID, setID] = useState(localStorage.getItem("customerID"));
@@ -42,6 +44,22 @@ function App() {
   function searchHandler(searchResult){
     sessionStorage.setObj("searchResult", searchResult);
   }
+
+
+  useEffect(() => {
+    APIAccess.getCategory()
+    .then(x => {
+        if(x.done) {
+          localStorage.setObj("categories", x.result);
+        } else {
+          alert("Cannot retrieve categories due to some error.");
+        }
+      })
+      .catch((e) => {
+        alert("Cannot retrieve categories due to some error.");
+      })
+  }, []);
+
 
   return (
     <HashRouter>
