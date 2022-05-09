@@ -11,8 +11,8 @@ import EditPlace from "./components/EditPlace";
 import DeletePlace from "./components/DeletePlace";
 import AddReview from "./components/AddReview";
 import Search from "./components/Search";
+import bg2 from "./assets/bg2.jpg";
 import { useState } from "react";
-
 
 function App() {
   const [customerID, setID] = useState(localStorage.getItem("customerID"));
@@ -25,14 +25,14 @@ function App() {
     return JSON.parse(this.getItem(key))
   }
 
-  function loginHandler(id, username){
+  function loginHandler(id, username) {
     localStorage.setItem("customerID", id);
     localStorage.setItem("customerEmail", username);
     setID(localStorage.getItem("customerID"));
     setEmail(localStorage.getItem("customerEmail"));
   }
 
-  function logoutHandler(){
+  function logoutHandler() {
     localStorage.removeItem("customerID");
     localStorage.removeItem("customerEmail");
     setID(localStorage.getItem("customerID"));
@@ -43,20 +43,47 @@ function App() {
     localStorage.setObj("searchResult", searchResult);
   }
 
-
   return (
     <HashRouter>
-      <Container fluid>
+      <Container
+        fluid
+        style={{
+          backgroundImage: `url(${bg2})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          width: "100vw",
+          height: "100vh",
+        }}
+      >
         <Row>
           <Col>
-            <Menu customerID={customerID} customerEmail={customerEmail} logoutHandler={logoutHandler} />
+            <Menu
+              customerID={customerID}
+              customerEmail={customerEmail}
+              logoutHandler={logoutHandler}
+            />
           </Col>
         </Row>
         <Routes>
-          <Route exact path="/login" element={<Login loginHandler={loginHandler} />}></Route>
+          <Route
+            exact
+            path="/login"
+            element={<Login loginHandler={loginHandler} />}
+          ></Route>
           <Route exact path="/register" element={<Register />}></Route>
-          <Route exact path="/google/:username/:id" element={<FederatedLogin provider="google" loginHandler={loginHandler} />}></Route>
-          <Route exact path="/search" element={<Search searchHandler={searchHandler} />}></Route>
+          <Route
+            exact
+            path="/google/:username/:id"
+            element={
+              <FederatedLogin provider="google" loginHandler={loginHandler} />
+            }
+          ></Route>
+          <Route
+            exact
+            path="/search"
+            element={<Search searchHandler={searchHandler} />}
+          ></Route>
           <Route exact path="/addplace" element={<AddPlace />}></Route>
           <Route exact path="/editplace" element={<EditPlace />}></Route>
           <Route exact path="/deleteplace" element={<DeletePlace />}></Route>

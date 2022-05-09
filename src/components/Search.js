@@ -1,8 +1,8 @@
 import { Container, Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import styles from "./Home.module.css";
-import { useNavigate } from 'react-router-dom';
-import APIAccess from '../communication/APIAccess';
+import { useNavigate } from "react-router-dom";
+import APIAccess from "../communication/APIAccess";
 import { MDBInput } from "mdb-react-ui-kit";
 import logo from "../assets/logo.jpeg";
 
@@ -16,30 +16,29 @@ function Search(props) {
   const [sort, setSort] = useState("");
   const navigate = useNavigate();
 
-
   let onTermChanged = (e) => {
     setTerm(e.target.value);
-  }
+  };
 
   let onLocationChanged = (e) => {
     setLocation(e.target.value);
-  }
+  };
 
   let onRadiusChanged = (e) => {
     setRadius(e.target.value);
-  }
+  };
 
   let onMaxResChanged = (e) => {
     setMaxRes(e.target.value);
-  }
+  };
 
   let onCategoryChanged = (e) => {
     setCategory(e.target.value);
-  }
+  };
 
   let onSortChanged = (e) => {
     setSort(e.target.value);
-  }
+  };
 
   let onSubmitHandler = (e) => {
     e.preventDefault();
@@ -51,45 +50,55 @@ function Search(props) {
         } else {
           alert('Cannot find any place. Please check your input.');
         }
-    })
-    .catch(e => {
+      })
+      .catch((e) => {
         console.log(e);
-        alert('Something went wrong!');
-    });         
-  }
-
+        alert("Something went wrong!");
+      });
+  };
 
   return (
     <Container className={styles["landing"]}>
       <Container className={styles["search-area"]}>
-
         <img src={logo} className={styles["logo"]} alt="logo" />
 
         <Form onSubmit={onSubmitHandler}>
           <Form.Group className="mb-3">
-            <MDBInput label="Search Term" value={search_term} onChange={onTermChanged}/>
+            <MDBInput
+              label="Search Term"
+              value={search_term}
+              onChange={onTermChanged}
+            />
           </Form.Group>
-            
+
           <Form.Group className="mb-3">
             <MDBInput label="Location (lat,long)" value={user_location} onChange={onLocationChanged}/>
-          </Form.Group>   
+          </Form.Group>
 
-                  
           <Form.Group className="mb-3">
-            <MDBInput label="Number of return results" value={maximum_results_to_return} onChange={onMaxResChanged}/>
-          </Form.Group>  
+            <MDBInput
+              label="Number of return results"
+              value={maximum_results_to_return}
+              onChange={onMaxResChanged}
+            />
+          </Form.Group>
 
-                  
           <Form.Group className="mb-3">
-            <MDBInput label="Radius" value={radius_filter} onChange={onRadiusChanged}/>
-          </Form.Group>  
+            <MDBInput
+              label="Radius"
+              value={radius_filter}
+              onChange={onRadiusChanged}
+            />
+          </Form.Group>
 
-                  
           <Form.Group className="mb-3">
-            <MDBInput label="Category" value={category_filter} onChange={onCategoryChanged}/>
-          </Form.Group>  
+            <MDBInput
+              label="Category"
+              value={category_filter}
+              onChange={onCategoryChanged}
+            />
+          </Form.Group>
 
-                  
           <Form.Group className="mb-3">
             <MDBInput label="Sort Mode" value={sort} onChange={onSortChanged}/>
           </Form.Group>  
