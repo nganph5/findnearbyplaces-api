@@ -12,8 +12,9 @@ function AddReview() {
   const [place_id, setID] = useState('');
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState('');
-  const navigate = useNavigate();
+  const [url, setURL] = useState('');
 
+  const navigate = useNavigate();
 
   let customerID = localStorage.getItem("customerID");
 
@@ -48,6 +49,10 @@ function AddReview() {
     setRating(e ? e.value : '');
   }
 
+  let onURLChanged = (e) => {
+    setURL(e.target.value);
+  }
+
   let onSubmitHandler = (e) => {
     e.preventDefault();
     if (!customerID){
@@ -55,12 +60,18 @@ function AddReview() {
       navigate("/login");
     }else{
       APIAccess.addReview(place_id, comment, rating, customerID)
-      .then(x => {
-          if(x.done) {
-            alert('Review added successfully!');
-          } else {
-            alert('Cannot add review. Please check your input.');
-          }
+      .then((x) => {
+        if (x.done) {
+          APIAccess.addPhoto(url, null, x.id)
+          .then(x => {
+            if (x.done){
+              alert("Review added succesfully!");
+            }else{
+              alert("Cannot add to database. Please check your input.");
+            }
+          })
+        } else {
+        }
       })
       .catch(e => {
           console.log(e);
@@ -93,6 +104,10 @@ function AddReview() {
              value={comment} 
              className={styles["long-input"]} 
              onChange={onCommentChanged}/>
+          </Form.Group> 
+
+          <Form.Group className="mb-3">
+            <MDBInput label="Image URL" value={url} onChange={onURLChanged}/>
           </Form.Group> 
 
           <Button type="submit" block="true" className={`button ${styles["button"]}`} >Add a review</Button>  

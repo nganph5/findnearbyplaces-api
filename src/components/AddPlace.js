@@ -13,10 +13,11 @@ function AddPlace() {
   const [latitude, setLat] = useState("");
   const [longitude, setLong] = useState("");
   const [description, setDescription] = useState("");
+  const [url, setURL] = useState('');
+
   const navigate = useNavigate();
 
   let customerID = localStorage.getItem("customerID");
-
 
   let categories = localStorage.getObj("categories");
   let categoryOptions = [];
@@ -45,6 +46,10 @@ function AddPlace() {
     setDescription(e.target.value);
   };
 
+  let onURLChanged = (e) => {
+    setURL(e.target.value);
+  }
+
   let onSubmitHandler = (e) => {
     e.preventDefault();
     if (!customerID) {
@@ -61,9 +66,15 @@ function AddPlace() {
       )
         .then((x) => {
           if (x.done) {
-            alert("Place added succesfully!");
+            APIAccess.addPhoto(url, x.id, null)
+            .then(x => {
+              if (x.done){
+                alert("Place added succesfully!");
+              }else{
+                alert("Cannot add to database. Please check your input.");
+              }
+            })
           } else {
-            alert("Cannot add to database. Please check your input.");
           }
         })
         .catch((e) => {
@@ -101,6 +112,10 @@ function AddPlace() {
             <MDBInput label="Description" 
             value={description} 
             onChange={onDescriptionChanged}/>
+          </Form.Group> 
+
+          <Form.Group className="mb-3">
+            <MDBInput label="Image URL" value={url} onChange={onURLChanged}/>
           </Form.Group> 
           
           <Button type="submit" block="true" className={`button ${styles["button"]}`} >Add a location</Button>  

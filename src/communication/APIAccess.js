@@ -144,7 +144,22 @@ let APIAccess = {
     .then(x => {
         return x;
     })
+  },
+
+  addPhoto: (photo, place_id, review_id) => {
+    return fetch(`${backendAddress}/photo`, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({photo, place_id, review_id}) 
+    })
+    .then(x => x.json())
+    .then(x => {
+        return x;
+    })
   }
+  
 }
 
 export default APIAccess;
