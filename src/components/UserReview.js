@@ -14,7 +14,7 @@ function UserReview() {
     .then(x => {
         if(x.done) {
           setReviews(x.result);
-          console.log(x.result);      
+          console.log(customerID, x.result);      
         } else {
           alert("Cannot retrieve reviews due to some error.");
         }
