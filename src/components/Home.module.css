@@ -75,6 +75,11 @@
   margin-bottom: 1rem;
 }
 
+.place-img{
+  width: 100%;
+  height: 100%;
+}
+
 .options {
   color: rgb(50, 50, 50);
   margin-bottom: 1rem;

@@ -41,7 +41,7 @@ export const Display = ({result}) => {
 
   return(
     <Container>
-      <Row xs={1} md={3} className="g-4 text-center">
+      <Row md="1" className="g-4 text-center">
         {result.map((row) => (
           <Col key={row.id}>
             <Card>

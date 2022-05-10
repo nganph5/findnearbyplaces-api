@@ -28,7 +28,7 @@ function DeletePlace() {
           if(x.done) {
             alert('Place deleted succesfully!');
           } else {
-            alert('Cannot delete place. Please check your input.');
+            alert('Cannot delete place. Make sure to only delete places that you upload.');
           }
       })
       .catch(e => {

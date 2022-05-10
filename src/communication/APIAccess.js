@@ -146,6 +146,34 @@ let APIAccess = {
     })
   },
 
+  getPlaces: (customer_id) => {
+    return fetch(`${backendAddress}/places`, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({customer_id}) 
+    })
+    .then(x => x.json())
+    .then(x => {
+        return x;
+    })
+  },
+
+  getReviews: (customer_id) => {
+    return fetch(`${backendAddress}/reviews`, {
+      method: 'Post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({customer_id}) 
+    })
+    .then(x => x.json())
+    .then(x => {
+        return x;
+    })
+  },
+
   addPhoto: (photo, place_id, review_id) => {
     return fetch(`${backendAddress}/photo`, {
       method: 'Post',

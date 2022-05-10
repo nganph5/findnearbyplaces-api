@@ -11,6 +11,9 @@ import EditPlace from "./components/EditPlace";
 import DeletePlace from "./components/DeletePlace";
 import AddReview from "./components/AddReview";
 import Search from "./components/Search";
+import UserPlace from "./components/UserPlace";
+import UserReview from "./components/UserReview";
+import AllPlace from "./components/AllPlace";
 import bg2 from "./assets/bg2.jpg";
 import { useState, useEffect } from "react";
 import APIAccess from "./communication/APIAccess";
@@ -106,6 +109,10 @@ function App() {
           <Route exact path="/editplace" element={<EditPlace />}></Route>
           <Route exact path="/deleteplace" element={<DeletePlace />}></Route>
           <Route exact path="/addreview" element={<AddReview />}></Route>
+
+          <Route exact path="/yourplaces" element={<UserPlace />}></Route>
+          <Route exact path="/yourreviews" element={<UserReview />}></Route>
+          <Route exact path="/allplaces" element={<AllPlace />}></Route>
 
           <Route exact path="/" element={<Home />}></Route>
         </Routes>
