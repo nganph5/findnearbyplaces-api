@@ -1,4 +1,4 @@
-import { Container, Col, Row, Card, Spinner } from "react-bootstrap";
+import { Container, Col, Row, Card } from "react-bootstrap";
 import styles from "./Home.module.css";
 import APIAccess from '../communication/APIAccess';
 import noImg from "../assets/no-img.png";
@@ -13,6 +13,7 @@ function UserPlace() {
     .then(x => {
         if(x.done) {
           setPlaces(x.result);
+          console.log(x.result);      
         } else {
           alert("Cannot retrieve locations due to some error.");
         }
@@ -61,9 +62,11 @@ function UserPlace() {
         ),)}
       </Row>
     </Container>
-  : <Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
+  : <Container className={styles["landing"]}>
+      <Container className={styles["search-area"]}>
+        <h5 className={styles["search-result"]}> No place added yet </h5>
+      </Container>
+    </Container>
   );
 }
 

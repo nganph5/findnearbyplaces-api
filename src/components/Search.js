@@ -67,7 +67,8 @@ function Search() {
     .then(x => {
         if(x.done && x.result.length > 0) {
           console.log(x.result)
-          localStorage.setObj("result", x.result);          
+          localStorage.setObj("result", x.result);    
+          console.log(x.result);      
           navigate('/')
         } else {
           alert('Cannot find any place. Please check your input.');

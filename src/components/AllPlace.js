@@ -60,9 +60,11 @@ function AllPlace() {
         ),)}
       </Row>
     </Container>
-  : <Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
+  : <Container className={styles["landing"]}>
+      <Container className={styles["search-area"]}>
+        <h5 className={styles["search-result"]}> No place added yet </h5>
+      </Container>
+    </Container>
   );
 }
 
