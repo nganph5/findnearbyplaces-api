@@ -24,7 +24,7 @@ function AllPlace() {
 
 
   return(places && places.length > 0 ? 
-    <Container className={styles["search-area"]}>
+    <Container className={styles["display-area"]}>
       <Row xs="1" sm="1" md="1" lg="1" xl="1" xxl="1" className="g-4 text-center">
         {places.map((row) => (
           <Col key={row.id}>

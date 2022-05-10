@@ -1,6 +1,12 @@
 .nav{
   width: inherit;
   position: relative;
+  /* background: rgb(51, 51, 51);   */
+  display: inline-flex;
+  height: fit-content;
+  background: #d32323;
+  padding: 2vh;
+
 }
 
 .nav-bar {

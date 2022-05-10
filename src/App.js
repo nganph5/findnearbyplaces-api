@@ -64,11 +64,11 @@ function App() {
   return (
     <HashRouter>
       <Container fluid>
-        <Row>
+        {/* <Row>
           <Col>
             <Header />
           </Col>
-        </Row>
+        </Row> */}
         
         <Row>
           <Col>

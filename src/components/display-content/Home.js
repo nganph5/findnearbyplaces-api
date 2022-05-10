@@ -9,7 +9,7 @@ function Home() {
 
 
   return (
-    <Container className={styles["search-area"]}>
+    <Container className={styles["display-area"]}>
       {customerID && customerEmail
         ?
         <>

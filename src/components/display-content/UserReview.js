@@ -26,7 +26,7 @@ function UserReview() {
 
 
   return(reviews && reviews.length > 0 ? 
-    <Container className={styles["search-area"]}>
+    <Container className={styles["display-area"]}>
       <Row xs="1" sm="1" md="1" lg="1" xl="1" xxl="1" className="g-4 text-center">
         {reviews.map((row) => (
           <Col key={row.id}>

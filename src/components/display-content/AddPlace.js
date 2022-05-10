@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Select from 'react-select'
 import styles from "./Content.module.css";
 import APIAccess from "../../communication/APIAccess";
-import logo from "../../assets/logo.jpeg";
+import { logo } from "../logo-import";
 import { MDBInput } from "mdb-react-ui-kit";
 
 function AddPlace() {

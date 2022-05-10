@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import APIAccess from "../../communication/APIAccess";
 import styles from "./Content.module.css";
 import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
-import logo from "../../assets/logo.jpeg";
+import { logo } from "../logo-import";
 import congifuration from "../../configuration";
 
 function Login(props) {

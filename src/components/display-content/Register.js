@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import APIAccess from '../../communication/APIAccess';
 import styles from "./Content.module.css";
-import logo from "../../assets/logo.jpeg";
+import { logo } from "../logo-import";
 import { MDBInput } from "mdb-react-ui-kit";
 
 
