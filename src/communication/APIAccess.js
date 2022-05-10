@@ -103,13 +103,13 @@ let APIAccess = {
     })
   },
 
-  editPlace: (place_id, name, category_id, latitude, longitude, description, customerID) => {
+  editPlace: (place_id, name, category_id, latitude, longitude, description, url, customerID) => {
     return fetch(`${backendAddress}/place`, {
       method: 'Put',
       headers: {
         'Content-Type': 'application/json'
     },
-      body: JSON.stringify({place_id, name, category_id, latitude, longitude, description, customerID}) 
+      body: JSON.stringify({place_id, name, category_id, latitude, longitude, description, url, customerID}) 
     })
     .then(x => x.json())
     .then(x => {

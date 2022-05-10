@@ -5,14 +5,13 @@ import noImg from "../assets/no-img.png";
 import { useState, useEffect } from "react";
 
 function AllPlace() {
-  const [places, setPlaces] = useState(localStorage.getObj("places"));
+  const [places, setPlaces] = useState([]);
 
   useEffect(x => {
     APIAccess.getPlaces(0)
     .then(x => {
         if(x.done) {
           setPlaces(x.result);
-          localStorage.setObj("places", x.result)
         } else {
           alert("Cannot retrieve locations due to some error.");
         }
@@ -36,7 +35,7 @@ function AllPlace() {
               }
          
               <Card.Body>
-                <Card.Title className={styles["place-name"]}>{row.name}/</Card.Title>
+                <Card.Title className={styles["place-name"]}>{row.name}</Card.Title>
 
                 <div className={styles["place-info"]}>Place ID</div>
                 <div className={styles["place-detail"]}>{row.id}</div>

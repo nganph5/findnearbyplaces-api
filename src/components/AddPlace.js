@@ -75,6 +75,7 @@ function AddPlace() {
               }
             })
           } else {
+            alert("Cannot add to database. Please check your input.");
           }
         })
         .catch((e) => {

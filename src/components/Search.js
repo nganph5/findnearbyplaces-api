@@ -8,7 +8,7 @@ import { MDBInput } from "mdb-react-ui-kit";
 import logo from "../assets/logo.jpeg";
 
 
-function Search(props) {
+function Search() {
   const [search_term, setTerm] = useState("");
   const [latitude, setLat] = useState("");
   const [longitude, setLong] = useState("");
@@ -65,8 +65,9 @@ function Search(props) {
     console.log(search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort)
     APIAccess.search(search_term, user_location, maximum_results_to_return, radius_filter, category_filter, sort)
     .then(x => {
-        if(x.done) {
-          props.searchHandler(x.result);
+        if(x.done && x.result.length > 0) {
+          console.log(x.result)
+          localStorage.setObj("result", x.result);          
           navigate('/')
         } else {
           alert('Cannot find any place. Please check your input.');

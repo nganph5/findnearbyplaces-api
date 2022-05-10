@@ -2,11 +2,11 @@ import { Container, Col, Row, Card } from "react-bootstrap";
 import styles from "./Home.module.css";
 
 function Home(props) {
+  localStorage.removeItem("searchResult");
   let customerID = localStorage.getItem("customerID");
   let customerEmail = localStorage.getItem("customerEmail");
-  let searchResult = sessionStorage.getObj("searchResult");
+  let searchResult = localStorage.getObj("result");
 
-  localStorage.removeItem("searchResult");
 
   return (
     <Container className={styles["landing"]}>
@@ -47,7 +47,7 @@ export const Display = ({result}) => {
             <Card>
               <Card.Img variant="top" src={row.file} alt="location" />
               <Card.Body>
-                <Card.Title className={styles["place-name"]}>{row.name}/</Card.Title>
+                <Card.Title className={styles["place-name"]}>{row.name}</Card.Title>
 
                 <div className={styles["place-info"]}>Place ID</div>
                 <div className={styles["place-detail"]}>{row.id}</div>

@@ -44,10 +44,6 @@ function App() {
     setEmail(localStorage.getItem("customerEmail"));
   }
 
-  function searchHandler(searchResult){
-    sessionStorage.setObj("searchResult", searchResult);
-  }
-
 
   useEffect(() => {
     APIAccess.getCategory()
@@ -103,7 +99,7 @@ function App() {
           <Route
             exact
             path="/search"
-            element={<Search searchHandler={searchHandler} />}
+            element={<Search />}
           ></Route>
           <Route exact path="/addplace" element={<AddPlace />}></Route>
           <Route exact path="/editplace" element={<EditPlace />}></Route>

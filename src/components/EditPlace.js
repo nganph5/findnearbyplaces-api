@@ -14,6 +14,8 @@ function EditPlace() {
   const [latitude, setLat] = useState("");
   const [longitude, setLong] = useState("");  
   const [description, setDescription] = useState('');
+  const [url, setURL] = useState('');
+
   const navigate = useNavigate();
 
   let customerID = localStorage.getItem("customerID");
@@ -48,19 +50,32 @@ function EditPlace() {
     setDescription(e.target.value);
   }
 
+  let onURLChanged = (e) => {
+    setURL(e.target.value);
+  }
+
   let onSubmitHandler = (e) => {
     e.preventDefault();
+    console.log(place_id, name, category_id, latitude, longitude, description, customerID, url)
+
     if (!customerID){
       alert("Please sign in to continue!")
       navigate("/login");
     }else{
-      APIAccess.editPlace(place_id, name, category_id, latitude, longitude, description, customerID)
-      .then(x => {
-          if(x.done) {
-            alert('Place edited succesfully!');
-          } else {
-            alert('Cannot edit place. Please check your input.');
-          }
+      APIAccess.editPlace(place_id, name, category_id, latitude, longitude, description, url, customerID)
+      .then((x) => {
+        if (x.done) {
+          APIAccess.addPhoto(url, place_id, null)
+          .then(x => {
+            if (x.done){
+              alert("Place added succesfully!");
+            }else{
+              alert("Cannot add to database. Please check your input.");
+            }
+          })
+        } else {
+          alert("Cannot add to database. Please check your input.");
+        }
       })
       .catch(e => {
           console.log(e);
@@ -105,6 +120,10 @@ function EditPlace() {
             onChange={onDescriptionChanged}/>
           </Form.Group> 
           
+          <Form.Group className="mb-3">
+            <MDBInput label="Image URL" value={url} onChange={onURLChanged}/>
+          </Form.Group> 
+
           <Button type="submit" block="true" className={`button ${styles["button"]}`} >Edit place</Button>  
         </Form> 
         </Container>

@@ -7,14 +7,13 @@ import { useState, useEffect } from "react";
 
 function UserReview() {
   let customerID = localStorage.getItem("customerID");
-  const [reviews, setReviews] = useState(localStorage.getObj("reviews"));
+  const [reviews, setReviews] = useState([]);
 
   useEffect(x => {
     APIAccess.getReviews(customerID)
     .then(x => {
         if(x.done) {
           setReviews(x.result);
-          localStorage.setObj("reviews", x.result)
         } else {
           alert("Cannot retrieve reviews due to some error.");
         }
@@ -37,7 +36,7 @@ function UserReview() {
               }
          
               <Card.Body>
-                <Card.Title className={styles["place-name"]}>{row.name}/</Card.Title>
+                <Card.Title className={styles["place-name"]}>{row.name}</Card.Title>
 
                 <div className={styles["place-info"]}>Place ID</div>
                 <div className={styles["place-detail"]}>{row.location_id}</div>

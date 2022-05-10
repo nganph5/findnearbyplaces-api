@@ -6,14 +6,13 @@ import { useState, useEffect } from "react";
 
 function UserPlace() {
   let customerID = localStorage.getItem("customerID");
-  const [places, setPlaces] = useState(localStorage.getObj("places"));
+  const [places, setPlaces] = useState([]);
 
   useEffect(x => {
     APIAccess.getPlaces(customerID)
     .then(x => {
         if(x.done) {
           setPlaces(x.result);
-          localStorage.setObj("places", x.result)
         } else {
           alert("Cannot retrieve locations due to some error.");
         }
@@ -37,7 +36,7 @@ function UserPlace() {
               }
          
               <Card.Body>
-                <Card.Title className={styles["place-name"]}>{row.name}/</Card.Title>
+                <Card.Title className={styles["place-name"]}>{row.name}</Card.Title>
 
                 <div className={styles["place-info"]}>Place ID</div>
                 <div className={styles["place-detail"]}>{row.id}</div>
