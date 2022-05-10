@@ -1,0 +1,19 @@
+.header {
+  color: white;
+  background-color: darkred;
+  width: inherit;
+  height: 5vh;
+  position: relative;
+}
+
+
+.header-text {
+  color: white;
+  font-style: oblique;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 2%;
+}

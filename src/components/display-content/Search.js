@@ -1,11 +1,11 @@
 import { Container, Form, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import Select from 'react-select'
-import styles from "./Home.module.css";
+import styles from "./Content.module.css";
 import { useNavigate } from "react-router-dom";
-import APIAccess from "../communication/APIAccess";
+import APIAccess from "../../communication/APIAccess";
 import { MDBInput } from "mdb-react-ui-kit";
-import logo from "../assets/logo.jpeg";
+import logo from "../../assets/logo.jpeg";
 
 
 function Search() {
@@ -82,61 +82,59 @@ function Search() {
 
 
   return (
-    <Container className={styles["landing"]}>
-      <Container className={styles["search-area"]}>
-        <img src={logo} className={styles["logo"]} alt="logo" />
+    <Container className={styles["search-area"]}>
+      <img src={logo} className={styles["logo"]} alt="logo" />
 
-        <Form onSubmit={onSubmitHandler}>
-          <Form.Group className="mb-3">
-            <MDBInput
-              label="Search Term"
-              value={search_term}
-              onChange={onTermChanged}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3">
-            <MDBInput label="Latitude" type="number" value={latitude} onChange={onLatChanged}/>
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <MDBInput label="Longitude" type="number" value={longitude} onChange={onLongChanged}/>
-          </Form.Group>
-
-          <Form.Group className="mb-3">
-            <MDBInput
-              type="number"
-              label="Number of return results"
-              value={maximum_results_to_return}
-              onChange={onMaxResChanged}
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3">
-            <MDBInput
-              type="number"
-              label="Radius"
-              value={radius_filter}
-              onChange={onRadiusChanged}
-            />
-          </Form.Group>
-
-          <Select placeholder="Category"
-            className={styles["options"]} 
-            value={categoryOptions.find(item => item.value === category_filter)}
-            onChange={onCategoryChanged} 
-            options={categoryOptions}
+      <Form onSubmit={onSubmitHandler}>
+        <Form.Group className="mb-3">
+          <MDBInput
+            label="Search Term"
+            value={search_term}
+            onChange={onTermChanged}
           />
+        </Form.Group>
 
-          <Select placeholder="Sort mode"
-            className={styles["options"]} 
-            value={sortOptions.find(item => item.value === sort)}
-            onChange={onSortChanged} 
-            options={sortOptions}
+        <Form.Group className="mb-3">
+          <MDBInput label="Latitude" type="number" value={latitude} onChange={onLatChanged}/>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <MDBInput label="Longitude" type="number" value={longitude} onChange={onLongChanged}/>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <MDBInput
+            type="number"
+            label="Number of return results"
+            value={maximum_results_to_return}
+            onChange={onMaxResChanged}
           />
-          
-          <Button type="submit" block="true" className={`button ${styles["button"]}`} >Search</Button>  
-        </Form> 
-      </Container>
+        </Form.Group>
+
+        <Form.Group className="mb-3">
+          <MDBInput
+            type="number"
+            label="Radius"
+            value={radius_filter}
+            onChange={onRadiusChanged}
+          />
+        </Form.Group>
+
+        <Select placeholder="Category"
+          className={styles["options"]} 
+          value={categoryOptions.find(item => item.value === category_filter)}
+          onChange={onCategoryChanged} 
+          options={categoryOptions}
+        />
+
+        <Select placeholder="Sort mode"
+          className={styles["options"]} 
+          value={sortOptions.find(item => item.value === sort)}
+          onChange={onSortChanged} 
+          options={sortOptions}
+        />
+        
+        <Button type="submit" block="true" className={`button ${styles["button"]}`} >Search</Button>  
+      </Form> 
     </Container>
   );
 }

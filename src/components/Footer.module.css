@@ -1,0 +1,19 @@
+.footer {
+  color: white;
+  background-color: darkred;
+  width: inherit;
+  height: 5vh;
+  position: relative;
+}
+
+
+.footer-text {
+  color: white;
+  font-style: oblique;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 2%;
+}

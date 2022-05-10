@@ -1,0 +1,110 @@
+/* COMMON */
+.search-area {
+  width: inherit;
+  height: fit-content;
+  display: flex;
+  padding: 5vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  position: relative;
+}
+/* -------------------------------------------------------------------- */
+
+
+
+/* ADD PLACE, ADD REVIEW, SEARCH, DELETE PLACE, EDIT PLACE */
+.logo {
+  width: 15vw;
+  margin-bottom: 5vh;
+}
+
+:global(.button).button {
+  color: white;
+  background-color: #bd7575;
+  border: none;
+  margin-top: 1em;
+  width: 100%;
+}
+/* -------------------------------------------------------------------- */
+
+
+
+/* HOME, LOG IN, USER PLACE, USER REVIEW */
+.no-result-text{
+  margin: 2rem;
+  color: rgb(59, 53, 53);
+}
+/* -------------------------------------------------------------------- */
+
+
+
+/* ADD PLACE, ADD REVIEW, EDIT PLACE, SEARCH */
+.options {
+  color: rgb(50, 50, 50);
+  margin-bottom: 1rem;
+}
+/* -------------------------------------------------------------------- */
+
+
+
+/* ALL PLACE, HOME, USER PLACE, USER REVIEW */
+.place-name{
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  background: #b88080;
+  color: white;
+}
+
+.place-info{
+  font-weight: bold;
+  color: grey;
+}
+
+.place-detail{
+  color: black;
+  margin-bottom: 1rem;
+}
+
+.place-img{
+  width: 100%;
+  height: 100%;
+}
+/* -------------------------------------------------------------------- */
+
+
+
+/* HOME */
+.landing-img{
+  height: 50vh;
+}
+/* -------------------------------------------------------------------- */
+
+
+
+/* LOG IN */
+:global(.button).google-btn {
+  height: fit-content;
+  width: fit-content;
+  border: none;
+  margin: 0.5em;
+  background: white;
+  color: grey;
+}
+
+.google-logo {
+  height: 1.5rem;
+  margin: 0.25em;
+}
+/* -------------------------------------------------------------------- */
+
+
+
+/* ADD REVIEW */
+.star{
+  width: 1em;
+  margin-bottom: 0.5em;
+}
+

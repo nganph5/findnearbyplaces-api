@@ -1,23 +1,24 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { Row, Col, Container } from "react-bootstrap";
-import Home from "./components/Home";
-import Register from "./components/Register";
-import Login from "./components/Login";
-import FederatedLogin from "./components/FederatedLogin";
-import Footer from "./components/Footer";
+import Header from "./components/Header";
 import Menu from "./components/Menu";
-import AddPlace from "./components/AddPlace";
-import EditPlace from "./components/EditPlace";
-import DeletePlace from "./components/DeletePlace";
-import AddReview from "./components/AddReview";
-import Search from "./components/Search";
-import UserPlace from "./components/UserPlace";
-import UserReview from "./components/UserReview";
-import AllPlace from "./components/AllPlace";
-import bg2 from "./assets/bg2.jpg";
+import Footer from "./components/Footer";
+import Home from "./components/display-content/Home";
+import Search from "./components/display-content/Search";
+import AllPlace from "./components/display-content/AllPlace";
+import UserPlace from "./components/display-content/UserPlace";
+import UserReview from "./components/display-content/UserReview";
+import AddPlace from "./components/display-content/AddPlace";
+import EditPlace from "./components/display-content/EditPlace";
+import DeletePlace from "./components/display-content/DeletePlace";
+import AddReview from "./components/display-content/AddReview";
+import Register from "./components/display-content/Register";
+import Login from "./components/display-content/Login";
+import FederatedLogin from "./components/display-content/FederatedLogin";
 import { useState, useEffect } from "react";
 import APIAccess from "./communication/APIAccess";
-
+import bg from "./assets/bg.jpg";
+import "./App.css"
 
 function App() {
   const [customerID, setID] = useState(localStorage.getItem("customerID"));
@@ -59,64 +60,45 @@ function App() {
       })
   }, []);
 
-
+  
   return (
     <HashRouter>
-      <Container
-        fluid
-        style={{
-          backgroundImage: `url(${bg2})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          width: "100vw",
-          height: "100vh",
-        }}
-      >
+      <Container fluid>
         <Row>
           <Col>
-            <Menu
-              customerID={customerID}
-              customerEmail={customerEmail}
-              logoutHandler={logoutHandler}
-            />
+            <Header />
           </Col>
         </Row>
-        <Routes>
-          <Route
-            exact
-            path="/login"
-            element={<Login loginHandler={loginHandler} />}
-          ></Route>
-          <Route exact path="/register" element={<Register />}></Route>
-          <Route
-            exact
-            path="/google/:username/:id"
-            element={
-              <FederatedLogin provider="google" loginHandler={loginHandler} />
-            }
-          ></Route>
-          <Route
-            exact
-            path="/search"
-            element={<Search />}
-          ></Route>
-          <Route exact path="/addplace" element={<AddPlace />}></Route>
-          <Route exact path="/editplace" element={<EditPlace />}></Route>
-          <Route exact path="/deleteplace" element={<DeletePlace />}></Route>
-          <Route exact path="/addreview" element={<AddReview />}></Route>
+        
+        <Row>
+          <Col>
+            <Menu customerID={customerID} customerEmail={customerEmail} logoutHandler={logoutHandler}/>
+          </Col>
+        </Row>
 
-          <Route exact path="/yourplaces" element={<UserPlace />}></Route>
-          <Route exact path="/yourreviews" element={<UserReview />}></Route>
-          <Route exact path="/allplaces" element={<AllPlace />}></Route>
+        <Container fluid className="bg">
+          <Routes>
+            <Route exact path="/login" element={<Login loginHandler={loginHandler} />}></Route>
+            <Route exact path="/register" element={<Register />}></Route>
+            <Route exact path="/google/:username/:id" element={<FederatedLogin provider="google" loginHandler={loginHandler} />}></Route>
+            <Route exact path="/search" element={<Search />}></Route>
+            <Route exact path="/addplace" element={<AddPlace />}></Route>
+            <Route exact path="/editplace" element={<EditPlace />}></Route>
+            <Route exact path="/deleteplace" element={<DeletePlace />}></Route>
+            <Route exact path="/addreview" element={<AddReview />}></Route>
+            <Route exact path="/yourplaces" element={<UserPlace />}></Route>
+            <Route exact path="/yourreviews" element={<UserReview />}></Route>
+            <Route exact path="/allplaces" element={<AllPlace />}></Route>
+            <Route exact path="/" element={<Home />}></Route>
+          </Routes>
+        </Container>
 
-          <Route exact path="/" element={<Home />}></Route>
-        </Routes>
         <Row>
           <Col>
             <Footer />
           </Col>
         </Row>
+
       </Container>
     </HashRouter>
   );

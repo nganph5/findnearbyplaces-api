@@ -1,7 +1,7 @@
 import { Container, Col, Row, Card } from "react-bootstrap";
-import styles from "./Home.module.css";
-import APIAccess from '../communication/APIAccess';
-import noImg from "../assets/no-img.png";
+import styles from "./Content.module.css";
+import APIAccess from '../../communication/APIAccess';
+import noImg from "../../assets/no-img.png";
 import { useState, useEffect } from "react";
 
 function UserPlace() {
@@ -26,7 +26,7 @@ function UserPlace() {
 
 
   return(places && places.length > 0 ? 
-    <Container>
+    <Container className={styles["search-area"]}>
       <Row xs="1" sm="1" md="1" lg="1" xl="1" xxl="1" className="g-4 text-center">
         {places.map((row) => (
           <Col key={row.id}>
@@ -62,10 +62,8 @@ function UserPlace() {
         ),)}
       </Row>
     </Container>
-  : <Container className={styles["landing"]}>
-      <Container className={styles["search-area"]}>
-        <h5 className={styles["search-result"]}> No place added yet </h5>
-      </Container>
+  : <Container className={styles["search-area"]}>
+      <h5 className={styles["no-result-text"]}> No place added yet </h5>
     </Container>
   );
 }

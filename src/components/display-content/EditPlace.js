@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import Select from 'react-select'
-import styles from "./Home.module.css";
-import APIAccess from '../communication/APIAccess';
-import logo from "../assets/logo.jpeg";
+import styles from "./Content.module.css";
+import APIAccess from '../../communication/APIAccess';
+import logo from "../../assets/logo.jpeg";
 import { MDBInput } from "mdb-react-ui-kit";
 import { useNavigate } from 'react-router-dom';
 
@@ -85,48 +85,44 @@ function EditPlace() {
   }
 
   return (
-    <Container className={styles["landing"]}>
-      <Container className={styles["search-area"]}>
+    <Container className={styles["search-area"]}>   
+      <img src={logo} className={styles["logo"]} alt="logo" />
       
-        <img src={logo} className={styles["logo"]} alt="logo" />
+      <Form onSubmit={onSubmitHandler}>
+        <Form.Group className="mb-3">
+          <MDBInput label="Place ID" value={place_id} onChange={onIDChanged}/>
+        </Form.Group> 
+
+        <Form.Group className="mb-3">
+          <MDBInput label="Name" value={name} onChange={onNameChanged}/>
+        </Form.Group> 
+
+        <Form.Group className="mb-3">
+          <MDBInput label="Latitude" type="number" value={latitude} onChange={onLatChanged}/>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <MDBInput label="Longitude" type="number" value={longitude} onChange={onLongChanged}/>
+        </Form.Group>
+
+        <Select placeholder="Category"
+          className={styles["options"]} 
+          value={categoryOptions.find(item => item.value === category_id)}
+          onChange={onCategoryChanged} 
+          options={categoryOptions}
+        />
+
+        <Form.Group className="mb-3">
+          <MDBInput label="Description" 
+          value={description} 
+          onChange={onDescriptionChanged}/>
+        </Form.Group> 
         
-        <Form onSubmit={onSubmitHandler}>
-          <Form.Group className="mb-3">
-            <MDBInput label="Place ID" value={place_id} onChange={onIDChanged}/>
-          </Form.Group> 
+        <Form.Group className="mb-3">
+          <MDBInput label="Image URL" value={url} onChange={onURLChanged}/>
+        </Form.Group> 
 
-          <Form.Group className="mb-3">
-            <MDBInput label="Name" value={name} onChange={onNameChanged}/>
-          </Form.Group> 
-
-          <Form.Group className="mb-3">
-            <MDBInput label="Latitude" type="number" value={latitude} onChange={onLatChanged}/>
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <MDBInput label="Longitude" type="number" value={longitude} onChange={onLongChanged}/>
-          </Form.Group>
-
-          <Select placeholder="Category"
-            className={styles["options"]} 
-            value={categoryOptions.find(item => item.value === category_id)}
-            onChange={onCategoryChanged} 
-            options={categoryOptions}
-          />
-
-          <Form.Group className="mb-3">
-            <MDBInput label="Description" 
-            value={description} 
-            className={styles["long-input"]} 
-            onChange={onDescriptionChanged}/>
-          </Form.Group> 
-          
-          <Form.Group className="mb-3">
-            <MDBInput label="Image URL" value={url} onChange={onURLChanged}/>
-          </Form.Group> 
-
-          <Button type="submit" block="true" className={`button ${styles["button"]}`} >Edit place</Button>  
-        </Form> 
-        </Container>
+        <Button type="submit" block="true" className={`button ${styles["button"]}`} >Edit place</Button>  
+      </Form> 
     </Container>
   );
 }

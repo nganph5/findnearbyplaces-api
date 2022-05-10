@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
 import Select from 'react-select'
-import styles from "./Home.module.css";
-import APIAccess from '../communication/APIAccess';
-import logo from "../assets/logo.jpeg";
-import star from "../assets/star.png";
+import styles from "./Content.module.css";
+import APIAccess from '../../communication/APIAccess';
+import logo from "../../assets/logo.jpeg";
+import star from "../../assets/star.png";
 import { MDBInput } from "mdb-react-ui-kit";
 import { useNavigate } from 'react-router-dom';
 
@@ -81,38 +81,35 @@ function AddReview() {
   }
 
   return (
-    <Container className={styles["landing"]}>
-      <Container className={styles["search-area"]}>
+    <Container className={styles["search-area"]}>
+    
+      <img src={logo} className={styles["logo"]} alt="logo" />
       
-        <img src={logo} className={styles["logo"]} alt="logo" />
+      <Form onSubmit={onSubmitHandler}>
         
-        <Form onSubmit={onSubmitHandler}>
-          
-          <Form.Group className="mb-3">
-            <MDBInput label="Place ID" value={place_id} onChange={onIDChanged}/>
-          </Form.Group> 
+        <Form.Group className="mb-3">
+          <MDBInput label="Place ID" value={place_id} onChange={onIDChanged}/>
+        </Form.Group> 
 
-          <Select placeholder="Rating"
-            className={styles["options"]} 
-            value={ratingOptions.find(item => item.value === rating)}
-            onChange={onRatingChanged} 
-            options={ratingOptions}
-          />
-          
-          <Form.Group className="mb-3">
-            <MDBInput label="Comment"
-             value={comment} 
-             className={styles["long-input"]} 
-             onChange={onCommentChanged}/>
-          </Form.Group> 
+        <Select placeholder="Rating"
+          className={styles["options"]} 
+          value={ratingOptions.find(item => item.value === rating)}
+          onChange={onRatingChanged} 
+          options={ratingOptions}
+        />
+        
+        <Form.Group className="mb-3">
+          <MDBInput label="Comment"
+            value={comment} 
+            onChange={onCommentChanged}/>
+        </Form.Group> 
 
-          <Form.Group className="mb-3">
-            <MDBInput label="Image URL" value={url} onChange={onURLChanged}/>
-          </Form.Group> 
+        <Form.Group className="mb-3">
+          <MDBInput label="Image URL" value={url} onChange={onURLChanged}/>
+        </Form.Group> 
 
-          <Button type="submit" block="true" className={`button ${styles["button"]}`} >Add a review</Button>  
-        </Form> 
-        </Container>
+        <Button type="submit" block="true" className={`button ${styles["button"]}`} >Add a review</Button>  
+      </Form> 
     </Container>
   );
 }
